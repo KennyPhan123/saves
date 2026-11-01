@@ -1,0 +1,583 @@
+﻿id,def,name,x,z,stuff,quality,health,faction,rot,extra,owner
+SimpleResearchBench57821,SimpleResearchBench,Bàn nghiên cứu đơn giản,139,146,WoodLog,,162,Faction_16,,{},player
+FueledStove43820,FueledStove,Bếp củi,125,139,,,180,Faction_16,,"{""fuel"": ""45.4536629"", ""allowAutoRefuel"": ""True"", ""bills"": [{""recipe"": ""CookMealSimpleBulk"", ""repeatCount"": null, ""targetCount"": 10, ""suspended"": null, ""allowedSkillRange"": ""0~20""}]}",player
+HorseshoesPin52961,HorseshoesPin,Cọc móng ngựa,135,126,WoodLog,,49,Faction_16,,{},player
+Wall55519,Wall,Tường,152,141,WoodLog,,195,Faction_16,,{},player
+Wall55544,Wall,Tường,150,141,WoodLog,,195,Faction_16,,{},player
+Wall55524,Wall,Tường,148,141,WoodLog,,195,Faction_16,,{},player
+TorchLamp55969,TorchLamp,Đuốc,127,137,,,75,Faction_16,,"{""fuel"": ""13.6295805"", ""allowAutoRefuel"": ""True"", ""glowOn"": ""True""}",player
+Door55642,Door,Cửa,135,144,WoodLog,,104,Faction_16,1,{},player
+Wall59801,Wall,Tường,129,135,WoodLog,,195,Faction_16,,{},player
+Wall55583,Wall,Tường,138,141,WoodLog,,195,Faction_16,,{},player
+Wall55572,Wall,Tường,142,141,WoodLog,,195,Faction_16,,{},player
+Frame_DiningChair57640,Frame_DiningChair,Khung ghế ăn,139,145,WoodLog,,16,Faction_16,2,{},player
+Wall55482,Wall,Tường,144,141,WoodLog,,195,Faction_16,,{},player
+Wall55601,Wall,Tường,136,141,WoodLog,,195,Faction_16,,{},player
+Wall55523,Wall,Tường,151,141,WoodLog,,195,Faction_16,,{},player
+Wall55212,Wall,Tường,139,141,WoodLog,,195,Faction_16,,{},player
+Wall55235,Wall,Tường,141,141,WoodLog,,195,Faction_16,,{},player
+Wall55632,Wall,Tường,137,141,WoodLog,,195,Faction_16,,{},player
+Wall55542,Wall,Tường,147,141,WoodLog,,195,Faction_16,,{},player
+TorchLamp57922,TorchLamp,Đuốc,144,145,,,75,Faction_16,,"{""fuel"": ""15.8581696"", ""allowAutoRefuel"": ""True"", ""glowOn"": ""True""}",player
+TorchLamp55618,TorchLamp,Đuốc,129,144,,,75,Faction_16,,"{""fuel"": ""12.9320011"", ""allowAutoRefuel"": ""True"", ""glowOn"": ""True""}",player
+Wall55555,Wall,Tường,149,141,WoodLog,,195,Faction_16,,{},player
+Wall55506,Wall,Tường,152,145,WoodLog,,195,Faction_16,,{},player
+Wall55510,Wall,Tường,152,144,WoodLog,,195,Faction_16,,{},player
+Door55682,Door,Cửa,144,148,WoodLog,,104,Faction_16,,{},player
+Wall55517,Wall,Tường,146,141,WoodLog,,195,Faction_16,,{},player
+Wall55222,Wall,Tường,140,141,WoodLog,,195,Faction_16,,{},player
+Wall55224,Wall,Tường,143,141,WoodLog,,195,Faction_16,,{},player
+Wall55553,Wall,Tường,152,142,WoodLog,,195,Faction_16,,{},player
+Wall55487,Wall,Tường,145,141,WoodLog,,195,Faction_16,,{},player
+TorchLamp55666,TorchLamp,Đuốc,143,152,,,75,Faction_16,,"{""fuel"": ""13.0181513"", ""allowAutoRefuel"": ""True"", ""glowOn"": ""True""}",player
+Wall55514,Wall,Tường,152,143,WoodLog,,195,Faction_16,,{},player
+Wall55512,Wall,Tường,152,146,WoodLog,,195,Faction_16,,{},player
+Wall55702,Wall,Tường,152,147,WoodLog,,195,Faction_16,,{},player
+Wall44669,Wall,Tường,93,132,WoodLog,,195,Faction_16,,{},player
+Wall44670,Wall,Tường,93,133,WoodLog,,195,Faction_16,,{},player
+Wall47213,Wall,Tường,150,156,WoodLog,,195,Faction_16,,{},player
+Wall45788,Wall,Tường,135,145,WoodLog,,195,Faction_16,,{},player
+Wall44576,Wall,Tường,102,129,WoodLog,,195,Faction_16,,{},player
+Wall47285,Wall,Tường,152,153,WoodLog,,195,Faction_16,,{},player
+Wall45781,Wall,Tường,134,148,WoodLog,,195,Faction_16,,{},player
+Wall47170,Wall,Tường,152,148,WoodLog,,195,Faction_16,,{},player
+Wall46993,Wall,Tường,139,148,WoodLog,,195,Faction_16,,{},player
+Wall44658,Wall,Tường,94,129,WoodLog,,195,Faction_16,,{},player
+Wall45776,Wall,Tường,126,148,WoodLog,,195,Faction_16,,{},player
+Door46145,Door,Cửa,128,148,WoodLog,,104,Faction_16,,{},player
+Wall44389,Wall,Tường,107,129,WoodLog,,195,Faction_16,,{},player
+Wall47007,Wall,Tường,142,148,WoodLog,,195,Faction_16,,{},player
+Wall47167,Wall,Tường,152,149,WoodLog,,195,Faction_16,,{},player
+Wall47019,Wall,Tường,140,156,WoodLog,,195,Faction_16,,{},player
+Wall46015,Wall,Tường,135,146,WoodLog,,195,Faction_16,,{},player
+Wall45765,Wall,Tường,124,148,WoodLog,,195,Faction_16,,{},player
+Wall45957,Wall,Tường,135,153,WoodLog,,195,Faction_16,,{},player
+Wall44672,Wall,Tường,93,134,WoodLog,,195,Faction_16,,{},player
+Wall45756,Wall,Tường,123,148,WoodLog,,195,Faction_16,,{},player
+Wall47040,Wall,Tường,143,156,WoodLog,,195,Faction_16,,{},player
+Wall44878,Wall,Tường,104,145,WoodLog,,195,Faction_16,,{},player
+Wall45770,Wall,Tường,122,147,WoodLog,,195,Faction_16,,{},player
+Wall47195,Wall,Tường,148,148,WoodLog,,195,Faction_16,,{},player
+Wall44873,Wall,Tường,107,137,WoodLog,,195,Faction_16,,{},player
+Wall44430,Wall,Tường,107,134,WoodLog,,195,Faction_16,,{},player
+Wall44893,Wall,Tường,107,140,WoodLog,,195,Faction_16,,{},player
+Wall44886,Wall,Tường,105,145,WoodLog,,195,Faction_16,,{},player
+Wall47122,Wall,Tường,151,156,WoodLog,,195,Faction_16,,{},player
+Wall45687,Wall,Tường,122,144,WoodLog,,195,Faction_16,,{},player
+Wall44897,Wall,Tường,107,141,WoodLog,,195,Faction_16,,{},player
+Wall47282,Wall,Tường,152,151,WoodLog,,195,Faction_16,,{},player
+Wall44900,Wall,Tường,107,144,WoodLog,,195,Faction_16,,{},player
+Wall45775,Wall,Tường,122,145,WoodLog,,195,Faction_16,,{},player
+Wall44926,Wall,Tường,101,129,WoodLog,,195,Faction_16,,{},player
+Wall47161,Wall,Tường,152,154,WoodLog,,195,Faction_16,,{},player
+Wall46985,Wall,Tường,137,148,WoodLog,,195,Faction_16,,{},player
+Wall44655,Wall,Tường,98,129,WoodLog,,195,Faction_16,,{},player
+Wall44615,Wall,Tường,107,135,WoodLog,,195,Faction_16,,{},player
+Wall44786,Wall,Tường,102,145,WoodLog,,195,Faction_16,,{},player
+Wall45767,Wall,Tường,132,148,WoodLog,,195,Faction_16,,{},player
+Wall44790,Wall,Tường,101,145,WoodLog,,195,Faction_16,,{},player
+Wall44625,Wall,Tường,97,129,WoodLog,,195,Faction_16,,{},player
+Wall44768,Wall,Tường,97,145,WoodLog,,195,Faction_16,,{},player
+Wall47164,Wall,Tường,152,150,WoodLog,,195,Faction_16,,{},player
+Wall44891,Wall,Tường,107,139,WoodLog,,195,Faction_16,,{},player
+Wall47014,Wall,Tường,141,156,WoodLog,,195,Faction_16,,{},player
+Wall45772,Wall,Tường,122,146,WoodLog,,195,Faction_16,,{},player
+Wall44804,Wall,Tường,106,145,WoodLog,,195,Faction_16,,{},player
+Wall47186,Wall,Tường,147,156,WoodLog,,195,Faction_16,,{},player
+Wall44757,Wall,Tường,96,145,WoodLog,,195,Faction_16,,{},player
+Wall45684,Wall,Tường,122,142,WoodLog,,195,Faction_16,,{},player
+Wall47148,Wall,Tường,145,156,WoodLog,,195,Faction_16,,{},player
+Wall46986,Wall,Tường,143,148,WoodLog,,195,Faction_16,,{},player
+Wall46998,Wall,Tường,140,148,WoodLog,,195,Faction_16,,{},player
+Wall45997,Wall,Tường,129,148,WoodLog,,195,Faction_16,,{},player
+Wall45782,Wall,Tường,135,149,WoodLog,,195,Faction_16,,{},player
+Wall45979,Wall,Tường,135,151,WoodLog,,195,Faction_16,,{},player
+Wall46069,Wall,Tường,135,147,WoodLog,,195,Faction_16,,{},player
+Wall44694,Wall,Tường,93,142,WoodLog,,195,Faction_16,,{},player
+Wall47159,Wall,Tường,152,152,WoodLog,,195,Faction_16,,{},player
+Wall44974,Wall,Tường,104,129,WoodLog,,195,Faction_16,,{},player
+Wall45774,Wall,Tường,127,148,WoodLog,,195,Faction_16,,{},player
+Wall44934,Wall,Tường,93,143,WoodLog,,195,Faction_16,,{},player
+Wall45845,Wall,Tường,135,154,WoodLog,,195,Faction_16,,{},player
+Wall46992,Wall,Tường,145,148,WoodLog,,195,Faction_16,,{},player
+Wall46059,Wall,Tường,135,142,WoodLog,,195,Faction_16,,{},player
+Wall47136,Wall,Tường,146,156,WoodLog,,195,Faction_16,,{},player
+Wall47329,Wall,Tường,138,156,WoodLog,,195,Faction_16,,{},player
+Wall44959,Wall,Tường,93,138,WoodLog,,195,Faction_16,,{},player
+Wall44940,Wall,Tường,93,140,WoodLog,,195,Faction_16,,{},player
+Wall45785,Wall,Tường,135,150,WoodLog,,195,Faction_16,,{},player
+Wall47023,Wall,Tường,142,156,WoodLog,,195,Faction_16,,{},player
+Wall45683,Wall,Tường,122,143,WoodLog,,195,Faction_16,,{},player
+Door46129,Door,Cửa,128,141,WoodLog,,104,Faction_16,,{},player
+Wall45798,Wall,Tường,135,143,WoodLog,,195,Faction_16,,{},player
+Wall44662,Wall,Tường,93,130,WoodLog,,195,Faction_16,,{},player
+Wall44921,Wall,Tường,107,130,WoodLog,,195,Faction_16,,{},player
+Wall44800,Wall,Tường,93,144,WoodLog,,195,Faction_16,,{},player
+Wall47198,Wall,Tường,148,156,WoodLog,,195,Faction_16,,{},player
+Wall44682,Wall,Tường,93,135,WoodLog,,195,Faction_16,,{},player
+Wall44735,Wall,Tường,93,137,WoodLog,,195,Faction_16,,{},player
+Wall45762,Wall,Tường,122,148,WoodLog,,195,Faction_16,,{},player
+Wall44384,Wall,Tường,106,129,WoodLog,,195,Faction_16,,{},player
+Wall47094,Wall,Tường,138,148,WoodLog,,195,Faction_16,,{},player
+Wall45783,Wall,Tường,135,148,WoodLog,,195,Faction_16,,{},player
+Wall44870,Wall,Tường,107,136,WoodLog,,195,Faction_16,,{},player
+Wall45853,Wall,Tường,131,148,WoodLog,,195,Faction_16,,{},player
+Wall45862,Wall,Tường,125,148,WoodLog,,195,Faction_16,,{},player
+Wall44918,Wall,Tường,107,142,WoodLog,,195,Faction_16,,{},player
+Wall44620,Wall,Tường,103,129,WoodLog,,195,Faction_16,,{},player
+Wall47263,Wall,Tường,150,148,WoodLog,,195,Faction_16,,{},player
+Wall44743,Wall,Tường,99,145,WoodLog,,195,Faction_16,,{},player
+Wall44392,Wall,Tường,107,132,WoodLog,,195,Faction_16,,{},player
+Wall47180,Wall,Tường,151,148,WoodLog,,195,Faction_16,,{},player
+Wall44627,Wall,Tường,95,129,WoodLog,,195,Faction_16,,{},player
+Wall47283,Wall,Tường,137,156,WoodLog,,195,Faction_16,,{},player
+Wall47090,Wall,Tường,146,148,WoodLog,,195,Faction_16,,{},player
+Wall44556,Wall,Tường,107,131,WoodLog,,195,Faction_16,,{},player
+Wall45978,Wall,Tường,135,155,WoodLog,,195,Faction_16,,{},player
+Wall44954,Wall,Tường,93,139,WoodLog,,195,Faction_16,,{},player
+Door44553,Door,Cửa,111,132,WoodLog,,104,Faction_16,,{},player
+Wall44756,Wall,Tường,100,145,WoodLog,,195,Faction_16,,{},player
+Wall44622,Wall,Tường,99,129,WoodLog,,195,Faction_16,,{},player
+Wall44697,Wall,Tường,93,136,WoodLog,,195,Faction_16,,{},player
+Door44419,Door,Cửa,107,133,WoodLog,,104,Faction_16,1,{},player
+Wall47002,Wall,Tường,141,148,WoodLog,,195,Faction_16,,{},player
+Wall47171,Wall,Tường,147,148,WoodLog,,195,Faction_16,,{},player
+Wall44653,Wall,Tường,105,129,WoodLog,,195,Faction_16,,{},player
+Door47334,Door,Cửa,135,152,WoodLog,,104,Faction_16,1,{},player
+Wall46982,Wall,Tường,136,148,WoodLog,,195,Faction_16,,{},player
+Wall46006,Wall,Tường,133,148,WoodLog,,195,Faction_16,,{},player
+Wall36983,Wall,Tường,124,141,WoodLog,,195,Faction_16,,{},player
+Wall44797,Wall,Tường,93,141,WoodLog,,195,Faction_16,,{},player
+Wall44660,Wall,Tường,93,129,WoodLog,,195,Faction_16,,{},player
+Wall44932,Wall,Tường,100,129,WoodLog,,195,Faction_16,,{},player
+Wall44798,Wall,Tường,98,145,WoodLog,,195,Faction_16,,{},player
+Wall44849,Wall,Tường,107,138,WoodLog,,195,Faction_16,,{},player
+Wall44803,Wall,Tường,95,145,WoodLog,,195,Faction_16,,{},player
+Wall44665,Wall,Tường,93,131,WoodLog,,195,Faction_16,,{},player
+Wall47181,Wall,Tường,149,148,WoodLog,,195,Faction_16,,{},player
+Wall47028,Wall,Tường,139,156,WoodLog,,195,Faction_16,,{},player
+Wall47128,Wall,Tường,152,156,WoodLog,,195,Faction_16,,{},player
+Wall44753,Wall,Tường,94,145,WoodLog,,195,Faction_16,,{},player
+Wall47185,Wall,Tường,152,155,WoodLog,,195,Faction_16,,{},player
+Wall47131,Wall,Tường,149,156,WoodLog,,195,Faction_16,,{},player
+Wall45905,Wall,Tường,135,156,WoodLog,,195,Faction_16,,{},player
+Wall44958,Wall,Tường,93,145,WoodLog,,195,Faction_16,,{},player
+Wall44922,Wall,Tường,107,145,WoodLog,,195,Faction_16,,{},player
+Wall44795,Wall,Tường,103,145,WoodLog,,195,Faction_16,,{},player
+Wall44626,Wall,Tường,96,129,WoodLog,,195,Faction_16,,{},player
+Wall47030,Wall,Tường,136,156,WoodLog,,195,Faction_16,,{},player
+Wall45801,Wall,Tường,130,148,WoodLog,,195,Faction_16,,{},player
+Wall47165,Wall,Tường,144,156,WoodLog,,195,Faction_16,,{},player
+Wall44862,Wall,Tường,107,143,WoodLog,,195,Faction_16,,{},player
+Wall37081,Wall,Tường,135,139,WoodLog,,195,Faction_16,,{},player
+Wall36800,Wall,Tường,126,135,WoodLog,,195,Faction_16,,{},player
+Wall36772,Wall,Tường,124,135,WoodLog,,195,Faction_16,,{},player
+Wall37016,Wall,Tường,135,138,WoodLog,,195,Faction_16,,{},player
+Wall37067,Wall,Tường,131,135,WoodLog,,195,Faction_16,,{},player
+Wall36771,Wall,Tường,122,137,WoodLog,,195,Faction_16,,{},player
+Wall37014,Wall,Tường,122,140,WoodLog,,195,Faction_16,,{},player
+Wall36872,Wall,Tường,133,141,WoodLog,,195,Faction_16,,{},player
+Wall37018,Wall,Tường,133,135,WoodLog,,195,Faction_16,,{},player
+Wall37102,Wall,Tường,135,140,WoodLog,,195,Faction_16,,{},player
+Wall36794,Wall,Tường,126,141,WoodLog,,195,Faction_16,,{},player
+Wall37105,Wall,Tường,135,136,WoodLog,,195,Faction_16,,{},player
+Wall37085,Wall,Tường,134,135,WoodLog,,195,Faction_16,,{},player
+Stool38159,Stool,Ghế đẩu,124,137,WoodLog,Poor,49,Faction_16,,{},player
+Wall37029,Wall,Tường,131,141,WoodLog,,195,Faction_16,,{},player
+Wall37040,Wall,Tường,135,141,WoodLog,,195,Faction_16,,{},player
+Wall36817,Wall,Tường,122,139,WoodLog,,195,Faction_16,,{},player
+Wall37011,Wall,Tường,135,137,WoodLog,,195,Faction_16,,{},player
+Wall36979,Wall,Tường,125,141,WoodLog,,195,Faction_16,,{},player
+Wall37108,Wall,Tường,125,135,WoodLog,,195,Faction_16,,{},player
+Wall36767,Wall,Tường,122,138,WoodLog,,195,Faction_16,,{},player
+Wall37073,Wall,Tường,132,141,WoodLog,,195,Faction_16,,{},player
+Wall36984,Wall,Tường,122,135,WoodLog,,195,Faction_16,,{},player
+Stool38223,Stool,Ghế đẩu,124,138,WoodLog,,49,Faction_16,,{},player
+Wall37023,Wall,Tường,135,135,WoodLog,,195,Faction_16,,{},player
+Wall36811,Wall,Tường,123,135,WoodLog,,195,Faction_16,,{},player
+Wall37026,Wall,Tường,134,141,WoodLog,,195,Faction_16,,{},player
+Wall36980,Wall,Tường,122,141,WoodLog,,195,Faction_16,,{},player
+Wall36967,Wall,Tường,129,141,WoodLog,,195,Faction_16,,{},player
+Wall36827,Wall,Tường,130,141,WoodLog,,195,Faction_16,,{},player
+Door36806,Door,Cửa,128,135,WoodLog,,104,Faction_16,,{},player
+Wall36974,Wall,Tường,127,141,WoodLog,,195,Faction_16,,{},player
+Wall37070,Wall,Tường,132,135,WoodLog,,195,Faction_16,,{},player
+Wall36975,Wall,Tường,123,141,WoodLog,,195,Faction_16,,{},player
+Wall37022,Wall,Tường,130,135,WoodLog,,195,Faction_16,,{},player
+Wall36889,Wall,Tường,122,136,WoodLog,,195,Faction_16,,{},player
+Wall36892,Wall,Tường,127,135,WoodLog,,195,Faction_16,,{},player
+Bed36866,Bed,Giường,151,155,WoodLog,,91,Faction_16,2,{},player
+Table1x2c38215,Table1x2c,Bàn ăn 1×2,123,137,WoodLog,Poor,49,Faction_16,,{},player
+Bed53128,Bed,Giường,134,140,WoodLog,Normal,91,Faction_16,2,{},player
+Bed36903,Bed,Giường,134,147,WoodLog,,91,Faction_16,2,{},player
+AncientRustedCarFrame30674,AncientRustedCarFrame,Khung xe gỉ cổ,138,123,,,350,,1,{},other
+SteamGeyser30493,SteamGeyser,Mạch nước nóng,129,151,,,,,,{},other
+ShipChunk_Mech46607,ShipChunk_Mech,Mảnh tàu cơ khí,225,17,,,300,,,{},other
+AncientGiantWheel30625,AncientGiantWheel,Bánh xe khổng lồ cổ,50,55,,,300,,,{},other
+ShipChunk_Mech46622,ShipChunk_Mech,Mảnh tàu cơ khí,232,2,,,300,,,{},other
+ShipChunk_Mech46610,ShipChunk_Mech,Mảnh tàu cơ khí,221,16,,,300,,,{},other
+AncientRustedCarFrame30689,AncientRustedCarFrame,Khung xe gỉ cổ,142,112,,,350,,1,{},other
+AncientGiantWheel30609,AncientGiantWheel,Bánh xe khổng lồ cổ,45,46,,,300,,,{},other
+AncientGiantWheel30613,AncientGiantWheel,Bánh xe khổng lồ cổ,50,61,,,300,,,{},other
+SteamGeyser30496,SteamGeyser,Mạch nước nóng,132,78,,,,,,{},other
+AncientPodCar30678,AncientPodCar,Pod xe cổ,128,127,,,600,,,{},other
+AncientMiniWarwalkerRemains30555,AncientMiniWarwalkerRemains,Xác warwalker cổ,85,38,,,1800,,,{},other
+ShipChunk5040,ShipChunk,Mảnh tàu,129,213,,,300,,2,{},other
+AncientExostriderRemains36630,AncientExostriderRemains,Xác exostrider cổ,199,197,,,3000,,,{},other
+AncientGiantWheel30652,AncientGiantWheel,Bánh xe khổng lồ cổ,57,43,,,300,,,{},other
+AncientRustedCar30661,AncientRustedCar,Xe gỉ cổ,127,110,,,600,,2,{},other
+AncientGiantWheel30638,AncientGiantWheel,Bánh xe khổng lồ cổ,68,46,,,300,,,{},other
+Table2x2c4793,Table2x2c,Bàn ăn 2×2,203,72,Steel,Normal,100,,,{},other
+GravEngine46605,GravEngine,Động cơ trọng lực,230,13,,,800,,,"{""glowOn"": ""True"", ""gravshipName"": ""tàu hấp dẫn""}",other
+ShipChunk_Mech46629,ShipChunk_Mech,Mảnh tàu cơ khí,214,8,,,300,,,{},other
+ShipChunk_Mech46617,ShipChunk_Mech,Mảnh tàu cơ khí,212,3,,,300,,,{},other
+SteleLarge4792,SteleLarge,Bia đá lớn,198,75,BlocksMarble,,240,,,{},other
+AncientGiantWheel30655,AncientGiantWheel,Bánh xe khổng lồ cổ,60,56,,,300,,,{},other
+ShipChunk5039,ShipChunk,Mảnh tàu,47,208,,,300,,,{},other
+SteleLarge4791,SteleLarge,Bia đá lớn,202,75,BlocksMarble,,240,,,{},other
+ShipChunk_Mech46636,ShipChunk_Mech,Mảnh tàu cơ khí,231,10,,,290,,,{},other
+AncientExostriderHead36620,AncientExostriderHead,Đầu exostrider cổ,201,197,,,1500,,,{},other
+AncientGiantWheel30636,AncientGiantWheel,Bánh xe khổng lồ cổ,60,42,,,300,,,{},other
+AncientGiantWheel30605,AncientGiantWheel,Bánh xe khổng lồ cổ,53,49,,,300,,,{},other
+VoidMonolith36663,VoidMonolith,Monolith,43,114,,,,,,{},other
+AncientPodCar30670,AncientPodCar,Pod xe cổ,146,117,,,600,,,{},other
+SteamGeyser30494,SteamGeyser,Mạch nước nóng,145,126,,,,,,{},other
+AncientExostriderCannon36638,AncientExostriderCannon,Pháo exostrider cổ,198,199,,,2000,,,{},other
+AncientRustedCar30684,AncientRustedCar,Xe gỉ cổ,128,119,,,600,,2,{},other
+AncientRustedCar30665,AncientRustedCar,Xe gỉ cổ,142,114,,,600,,,{},other
+AncientWheel30616,AncientWheel,Bánh xe cổ,37,73,,,150,,,{},other
+AncientRustedEngineBlock30691,AncientRustedEngineBlock,Khối động cơ gỉ cổ,131,112,,,350,,,{},other
+AncientSmallCrate30693,AncientSmallCrate,Thùng nhỏ cổ,212,34,,,150,,,{},other
+Wall4721,Wall,Tường,193,65,BlocksSandstone,,420,,,{},other
+Wall4723,Wall,Tường,194,65,BlocksSandstone,,420,,,{},other
+Wall4724,Wall,Tường,195,64,BlocksSandstone,,420,,,{},other
+Wall4717,Wall,Tường,190,71,BlocksSandstone,,420,,,{},other
+Wall4719,Wall,Tường,191,66,BlocksSandstone,,420,,,{},other
+Wall4720,Wall,Tường,192,65,BlocksSandstone,,420,,,{},other
+Wall4722,Wall,Tường,194,64,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4663,AncientConcreteBarrier,Rào bê tông cổ,13,93,,,291,,,{},other
+Wall4725,Wall,Tường,196,64,BlocksSandstone,,420,,,{},other
+Wall4726,Wall,Tường,196,65,BlocksSandstone,,420,,,{},other
+Wall4727,Wall,Tường,197,65,BlocksSandstone,,420,,,{},other
+Wall4718,Wall,Tường,191,65,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4685,AncientConcreteBarrier,Rào bê tông cổ,145,115,,,358,,,{},other
+AncientLamppost4686,AncientLamppost,Đèn đường cổ,147,111,,,210,,,{},other
+AncientConcreteBarrier4687,AncientConcreteBarrier,Rào bê tông cổ,148,111,,,500,,,{},other
+AncientConcreteBarrier4664,AncientConcreteBarrier,Rào bê tông cổ,22,98,,,294,,,{},other
+AncientConcreteBarrier4699,AncientConcreteBarrier,Rào bê tông cổ,197,147,,,500,,,{},other
+AncientConcreteBarrier4700,AncientConcreteBarrier,Rào bê tông cổ,203,152,,,331,,,{},other
+AncientConcreteBarrier4701,AncientConcreteBarrier,Rào bê tông cổ,204,154,,,369,,,{},other
+Wall4712,Wall,Tường,190,66,BlocksSandstone,,420,,,{},other
+AncientLamppost4675,AncientLamppost,Đèn đường cổ,75,98,,,216,,,{},other
+AncientConcreteBarrier4684,AncientConcreteBarrier,Rào bê tông cổ,138,113,,,323,,,{},other
+AncientConcreteBarrier4674,AncientConcreteBarrier,Rào bê tông cổ,72,97,,,500,,,{},other
+AncientConcreteBarrier4688,AncientConcreteBarrier,Rào bê tông cổ,149,111,,,370,,,{},other
+AncientConcreteBarrier4665,AncientConcreteBarrier,Rào bê tông cổ,23,94,,,326,,,{},other
+AncientConcreteBarrier4698,AncientConcreteBarrier,Rào bê tông cổ,195,151,,,500,,,{},other
+AncientConcreteBarrier4662,AncientConcreteBarrier,Rào bê tông cổ,11,98,,,360,,,{},other
+AncientConcreteBarrier4702,AncientConcreteBarrier,Rào bê tông cổ,205,154,,,500,,,{},other
+Wall4713,Wall,Tường,190,67,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4676,AncientConcreteBarrier,Rào bê tông cổ,112,106,,,500,,,{},other
+AncientConcreteBarrier4683,AncientConcreteBarrier,Rào bê tông cổ,134,112,,,500,,,{},other
+AncientConcreteBarrier4673,AncientConcreteBarrier,Rào bê tông cổ,68,93,,,317,,,{},other
+AncientConcreteBarrier4689,AncientConcreteBarrier,Rào bê tông cổ,157,118,,,345,,,{},other
+AncientConcreteBarrier4666,AncientConcreteBarrier,Rào bê tông cổ,26,93,,,500,,,{},other
+AncientLamppost4697,AncientLamppost,Đèn đường cổ,191,140,,,202,,,{},other
+AncientConcreteBarrier4661,AncientConcreteBarrier,Rào bê tông cổ,5,94,,,282,,,{},other
+AncientConcreteBarrier4703,AncientConcreteBarrier,Rào bê tông cổ,208,157,,,438,,,{},other
+Wall4714,Wall,Tường,190,68,BlocksSandstone,,420,,,{},other
+AncientLamppost4677,AncientLamppost,Đèn đường cổ,113,106,,,263,,,{},other
+AncientConcreteBarrier4682,AncientConcreteBarrier,Rào bê tông cổ,133,107,,,500,,,{},other
+AncientConcreteBarrier4672,AncientConcreteBarrier,Rào bê tông cổ,67,96,,,500,,,{},other
+AncientLamppost4691,AncientLamppost,Đèn đường cổ,158,119,,,229,,,{},other
+AncientConcreteBarrier4667,AncientConcreteBarrier,Rào bê tông cổ,26,98,,,382,,,{},other
+AncientConcreteBarrier4696,AncientConcreteBarrier,Rào bê tông cổ,188,144,,,405,,,{},other
+AncientConcreteBarrier4660,AncientConcreteBarrier,Rào bê tông cổ,4,98,,,398,,,{},other
+AncientConcreteBarrier4704,AncientConcreteBarrier,Rào bê tông cổ,216,166,,,441,,,{},other
+Wall4715,Wall,Tường,190,69,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4678,AncientConcreteBarrier,Rào bê tông cổ,119,108,,,269,,,{},other
+AncientConcreteBarrier4681,AncientConcreteBarrier,Rào bê tông cổ,131,111,,,417,,,{},other
+AncientConcreteBarrier4671,AncientConcreteBarrier,Rào bê tông cổ,66,98,,,307,,,{},other
+AncientConcreteBarrier4692,AncientConcreteBarrier,Rào bê tông cổ,173,123,,,500,,,{},other
+AncientConcreteBarrier4668,AncientConcreteBarrier,Rào bê tông cổ,28,98,,,314,,,{},other
+AncientConcreteBarrier4695,AncientConcreteBarrier,Rào bê tông cổ,188,138,,,500,,,{},other
+AncientConcreteBarrier4705,AncientConcreteBarrier,Rào bê tông cổ,232,189,,,291,,,{},other
+Wall4716,Wall,Tường,190,70,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4679,AncientConcreteBarrier,Rào bê tông cổ,121,108,,,500,,,{},other
+AncientConcreteBarrier4680,AncientConcreteBarrier,Rào bê tông cổ,123,109,,,333,,,{},other
+AncientConcreteBarrier4670,AncientConcreteBarrier,Rào bê tông cổ,30,98,,,311,,,{},other
+AncientConcreteBarrier4693,AncientConcreteBarrier,Rào bê tông cổ,174,130,,,301,,,{},other
+AncientLamppost4669,AncientLamppost,Đèn đường cổ,29,98,,,165,,,{},other
+AncientConcreteBarrier4694,AncientConcreteBarrier,Rào bê tông cổ,187,143,,,500,,,{},other
+AncientLamppost4711,AncientLamppost,Đèn đường cổ,247,200,,,287,,,{},other
+Wall4757,Wall,Tường,190,73,BlocksSandstone,,420,,,{},other
+Wall4756,Wall,Tường,190,74,BlocksSandstone,,420,,,{},other
+Wall4755,Wall,Tường,190,75,BlocksSandstone,,420,,,{},other
+Wall4754,Wall,Tường,190,76,BlocksSandstone,,420,,,{},other
+Wall4753,Wall,Tường,190,77,BlocksSandstone,,420,,,{},other
+AncientConcreteBarrier4709,AncientConcreteBarrier,Rào bê tông cổ,238,195,,,456,,,{},other
+AncientLamppost4708,AncientLamppost,Đèn đường cổ,238,188,,,266,,,{},other
+AncientConcreteBarrier4706,AncientConcreteBarrier,Rào bê tông cổ,235,185,,,500,,,{},other
+AncientLamppost4707,AncientLamppost,Đèn đường cổ,235,192,,,300,,,{},other
+Wall4728,Wall,Tường,198,65,BlocksSandstone,,420,,,{},other
+Wall4729,Wall,Tường,199,64,BlocksSandstone,,420,,,{},other
+Wall4730,Wall,Tường,199,65,BlocksSandstone,,420,,,{},other
+Wall4731,Wall,Tường,200,63,BlocksSandstone,,420,,,{},other
+Wall4732,Wall,Tường,200,64,BlocksSandstone,,420,,,{},other
+Wall4733,Wall,Tường,201,63,BlocksSandstone,,420,,,{},other
+Wall4734,Wall,Tường,202,63,BlocksSandstone,,420,,,{},other
+Wall4735,Wall,Tường,203,62,BlocksSandstone,,420,,,{},other
+Wall4736,Wall,Tường,203,63,BlocksSandstone,,420,,,{},other
+Wall4737,Wall,Tường,204,62,BlocksSandstone,,420,,,{},other
+Wall4738,Wall,Tường,205,62,BlocksSandstone,,420,,,{},other
+Wall4739,Wall,Tường,205,63,BlocksSandstone,,420,,,{},other
+Wall4740,Wall,Tường,206,63,BlocksSandstone,,420,,,{},other
+Wall4741,Wall,Tường,206,64,BlocksSandstone,,420,,,{},other
+Wall4742,Wall,Tường,206,65,BlocksSandstone,,420,,,{},other
+Wall4743,Wall,Tường,206,66,BlocksSandstone,,420,,,{},other
+Wall4744,Wall,Tường,206,67,BlocksSandstone,,420,,,{},other
+Wall4745,Wall,Tường,206,68,BlocksSandstone,,420,,,{},other
+Wall4746,Wall,Tường,206,69,BlocksSandstone,,420,,,{},other
+Wall4747,Wall,Tường,206,70,BlocksSandstone,,420,,,{},other
+Wall4748,Wall,Tường,206,71,BlocksSandstone,,420,,,{},other
+Wall4758,Wall,Tường,190,72,BlocksSandstone,,420,,,{},other
+Wall4759,Wall,Tường,191,78,BlocksSandstone,,420,,,{},other
+Wall4760,Wall,Tường,191,77,BlocksSandstone,,420,,,{},other
+Wall4761,Wall,Tường,192,78,BlocksSandstone,,420,,,{},other
+Wall4762,Wall,Tường,193,78,BlocksSandstone,,420,,,{},other
+Wall4763,Wall,Tường,194,79,BlocksSandstone,,420,,,{},other
+Wall4764,Wall,Tường,194,78,BlocksSandstone,,420,,,{},other
+Wall4765,Wall,Tường,195,79,BlocksSandstone,,420,,,{},other
+Wall4766,Wall,Tường,196,79,BlocksSandstone,,420,,,{},other
+Wall4767,Wall,Tường,196,78,BlocksSandstone,,420,,,{},other
+Wall4768,Wall,Tường,197,78,BlocksSandstone,,420,,,{},other
+Wall4769,Wall,Tường,198,78,BlocksSandstone,,420,,,{},other
+Wall4770,Wall,Tường,199,79,BlocksSandstone,,420,,,{},other
+Wall4771,Wall,Tường,199,78,BlocksSandstone,,420,,,{},other
+Wall4772,Wall,Tường,200,80,BlocksSandstone,,420,,,{},other
+Wall4773,Wall,Tường,200,79,BlocksSandstone,,420,,,{},other
+Wall4774,Wall,Tường,201,80,BlocksSandstone,,420,,,{},other
+Wall4775,Wall,Tường,202,80,BlocksSandstone,,420,,,{},other
+Wall4776,Wall,Tường,203,81,BlocksSandstone,,420,,,{},other
+Wall4777,Wall,Tường,203,80,BlocksSandstone,,420,,,{},other
+Wall4778,Wall,Tường,204,81,BlocksSandstone,,420,,,{},other
+Wall4779,Wall,Tường,205,81,BlocksSandstone,,420,,,{},other
+Wall4780,Wall,Tường,205,80,BlocksSandstone,,420,,,{},other
+Wall4781,Wall,Tường,206,80,BlocksSandstone,,420,,,{},other
+Wall4782,Wall,Tường,206,79,BlocksSandstone,,420,,,{},other
+Wall4783,Wall,Tường,206,78,BlocksSandstone,,420,,,{},other
+Wall4784,Wall,Tường,206,77,BlocksSandstone,,420,,,{},other
+Wall4785,Wall,Tường,206,76,BlocksSandstone,,420,,,{},other
+Wall4786,Wall,Tường,206,75,BlocksSandstone,,420,,,{},other
+Wall4787,Wall,Tường,206,74,BlocksSandstone,,420,,,{},other
+Wall4788,Wall,Tường,206,73,BlocksSandstone,,420,,,{},other
+Wall4789,Wall,Tường,206,72,BlocksSandstone,,420,,,{},other
+AncientBarrel4799,AncientBarrel,Thùng phuy cổ,202,77,,,50,,,{},other
+Wall4854,Wall,Tường,224,40,BlocksLimestone,,158,,,{},other
+Wall4855,Wall,Tường,225,38,BlocksLimestone,,204,,,{},other
+Wall4856,Wall,Tường,226,38,BlocksLimestone,,243,,,{},other
+Wall4857,Wall,Tường,227,38,BlocksLimestone,,285,,,{},other
+Wall4858,Wall,Tường,228,38,BlocksLimestone,,321,,,{},other
+Wall4859,Wall,Tường,229,38,BlocksLimestone,,350,,,{},other
+Wall4860,Wall,Tường,230,38,BlocksLimestone,,404,,,{},other
+Wall4861,Wall,Tường,231,38,BlocksLimestone,,443,,,{},other
+Wall4862,Wall,Tường,232,38,BlocksLimestone,,465,,,{},other
+Wall4863,Wall,Tường,232,39,BlocksLimestone,,465,,,{},other
+Wall4864,Wall,Tường,232,40,BlocksLimestone,,465,,,{},other
+Wall4865,Wall,Tường,232,41,BlocksLimestone,,465,,,{},other
+Wall4866,Wall,Tường,232,43,BlocksLimestone,,465,,,{},other
+Wall4867,Wall,Tường,232,44,BlocksLimestone,,465,,,{},other
+Wall4868,Wall,Tường,232,45,BlocksLimestone,,465,,,{},other
+Column4869,Column,Cột,227,40,BlocksLimestone,,135,,,{},other
+Door4871,Door,Cửa,232,42,BlocksLimestone,,249,,1,{},other
+Wall4872,Wall,Tường,221,49,BlocksLimestone,,42,,,{},other
+Wall4873,Wall,Tường,223,51,BlocksLimestone,,119,,,{},other
+Wall4874,Wall,Tường,225,53,BlocksLimestone,,186,,,{},other
+Wall4875,Wall,Tường,229,53,BlocksLimestone,,379,,,{},other
+Wall4876,Wall,Tường,230,53,BlocksLimestone,,411,,,{},other
+Wall4877,Wall,Tường,231,53,BlocksLimestone,,465,,,{},other
+Wall4878,Wall,Tường,232,53,BlocksLimestone,,465,,,{},other
+Wall4879,Wall,Tường,232,52,BlocksLimestone,,465,,,{},other
+Wall4880,Wall,Tường,232,51,BlocksLimestone,,464,,,{},other
+Wall4881,Wall,Tường,232,50,BlocksLimestone,,453,,,{},other
+Wall4882,Wall,Tường,232,48,BlocksLimestone,,453,,,{},other
+Wall4883,Wall,Tường,232,47,BlocksLimestone,,432,,,{},other
+Wall4884,Wall,Tường,232,46,BlocksLimestone,,465,,,{},other
+Column4885,Column,Cột,227,51,BlocksLimestone,,147,,,{},other
+Door4887,Door,Cửa,232,49,BlocksLimestone,,250,,1,{},other
+Wall4888,Wall,Tường,101,114,BlocksGranite,,167,,,{},other
+Wall4889,Wall,Tường,101,117,BlocksGranite,,155,,,{},other
+Wall4890,Wall,Tường,105,114,BlocksGranite,,483,,,{},other
+Wall4891,Wall,Tường,105,115,BlocksGranite,,503,,,{},other
+Wall4892,Wall,Tường,105,116,BlocksGranite,,446,,,{},other
+Wall4893,Wall,Tường,105,117,BlocksGranite,,455,,,{},other
+Wall4894,Wall,Tường,105,118,BlocksGranite,,510,,,{},other
+Wall4895,Wall,Tường,105,119,BlocksGranite,,440,,,{},other
+Wall4896,Wall,Tường,104,119,BlocksGranite,,369,,,{},other
+Wall4897,Wall,Tường,103,114,BlocksGranite,,303,,,{},other
+Wall4898,Wall,Tường,103,115,BlocksGranite,,313,,,{},other
+Door4899,Door,Cửa,103,119,BlocksGranite,,176,,,{},other
+Wall4900,Wall,Tường,154,195,BlocksLimestone,,408,,,{},other
+Wall4901,Wall,Tường,154,196,BlocksLimestone,,355,,,{},other
+Wall4902,Wall,Tường,154,197,BlocksLimestone,,272,,,{},other
+Wall4903,Wall,Tường,155,194,BlocksLimestone,,465,,,{},other
+Wall4904,Wall,Tường,155,195,BlocksLimestone,,465,,,{},other
+Wall4905,Wall,Tường,155,197,BlocksLimestone,,279,,,{},other
+Wall4906,Wall,Tường,157,194,BlocksLimestone,,465,,,{},other
+Wall4907,Wall,Tường,158,195,BlocksLimestone,,445,,,{},other
+Wall4908,Wall,Tường,159,195,BlocksLimestone,,433,,,{},other
+Wall4909,Wall,Tường,160,195,BlocksLimestone,,405,,,{},other
+Wall4910,Wall,Tường,160,196,BlocksLimestone,,371,,,{},other
+Wall4911,Wall,Tường,160,197,BlocksLimestone,,304,,,{},other
+Column4912,Column,Cột,157,197,Steel,,103,,,{},other
+Door4913,Door,Cửa,156,194,BlocksLimestone,,250,,,{},other
+Wall4914,Wall,Tường,158,199,BlocksLimestone,,155,,,{},other
+Wall4915,Wall,Tường,160,198,BlocksLimestone,,226,,,{},other
+Wall4916,Wall,Tường,206,27,Steel,,135,,,{},other
+Column4917,Column,Cột,209,25,BlocksSandstone,,80,,,{},other
+Column4918,Column,Cột,209,27,BlocksSandstone,,116,,,{},other
+Door4919,Door,Cửa,206,26,Steel,,63,,1,{},other
+Wall4920,Wall,Tường,218,24,Steel,,81,,,{},other
+Wall4921,Wall,Tường,218,25,Steel,,109,,,{},other
+Column4922,Column,Cột,216,25,BlocksSandstone,,78,,,{},other
+Wall4923,Wall,Tường,206,28,Steel,,150,,,{},other
+Wall4924,Wall,Tường,207,35,Steel,,300,,,{},other
+Wall4925,Wall,Tường,207,34,Steel,,274,,,{},other
+Wall4926,Wall,Tường,207,33,Steel,,289,,,{},other
+Wall4927,Wall,Tường,207,32,Steel,,227,,,{},other
+Wall4928,Wall,Tường,207,30,Steel,,194,,,{},other
+Wall4929,Wall,Tường,207,28,Steel,,173,,,{},other
+Wall4930,Wall,Tường,208,35,Steel,,300,,,{},other
+Wall4931,Wall,Tường,209,35,Steel,,293,,,{},other
+Wall4932,Wall,Tường,209,34,Steel,,300,,,{},other
+Wall4933,Wall,Tường,210,34,Steel,,300,,,{},other
+Wall4934,Wall,Tường,211,35,Steel,,300,,,{},other
+Wall4935,Wall,Tường,211,34,Steel,,266,,,{},other
+Wall4936,Wall,Tường,212,35,Steel,,294,,,{},other
+Column4937,Column,Cột,209,32,BlocksSandstone,,200,,,{},other
+Column4938,Column,Cột,209,30,BlocksSandstone,,155,,,{},other
+Column4939,Column,Cột,209,28,BlocksSandstone,,119,,,{},other
+Door4940,Door,Cửa,206,29,Steel,,97,,1,{},other
+Wall4941,Wall,Tường,219,28,Steel,,155,,,{},other
+Wall4942,Wall,Tường,218,35,Steel,,300,,,{},other
+Wall4943,Wall,Tường,218,34,Steel,,270,,,{},other
+Wall4944,Wall,Tường,218,33,Steel,,287,,,{},other
+Wall4945,Wall,Tường,218,32,Steel,,233,,,{},other
+Wall4946,Wall,Tường,218,31,Steel,,245,,,{},other
+Wall4947,Wall,Tường,218,30,Steel,,218,,,{},other
+Wall4948,Wall,Tường,217,35,Steel,,300,,,{},other
+Wall4949,Wall,Tường,216,35,Steel,,300,,,{},other
+Wall4950,Wall,Tường,216,34,Steel,,300,,,{},other
+Wall4951,Wall,Tường,215,34,Steel,,284,,,{},other
+Wall4952,Wall,Tường,214,35,Steel,,300,,,{},other
+Wall4953,Wall,Tường,214,34,Steel,,300,,,{},other
+Wall4954,Wall,Tường,213,35,Steel,,300,,,{},other
+Door4955,Door,Cửa,219,29,Steel,,94,,1,{},other
+Wall4956,Wall,Tường,156,32,BlocksMarble,,80,,,{},other
+Door4957,Door,Cửa,156,33,BlocksMarble,,42,,1,{},other
+Wall4958,Wall,Tường,156,36,BlocksMarble,,83,,,{},other
+Wall4959,Wall,Tường,156,39,BlocksMarble,,78,,,{},other
+Wall4960,Wall,Tường,156,40,BlocksMarble,,76,,,{},other
+Door4961,Door,Cửa,157,39,BlocksMarble,,56,,,{},other
+Wall4962,Wall,Tường,157,46,BlocksMarble,,106,,,{},other
+Wall4963,Wall,Tường,158,32,BlocksMarble,,126,,,{},other
+Wall4964,Wall,Tường,159,39,BlocksMarble,,166,,,{},other
+Wall4965,Wall,Tường,160,32,BlocksMarble,,184,,,{},other
+Wall4966,Wall,Tường,160,39,BlocksMarble,,172,,,{},other
+Wall4967,Wall,Tường,161,35,BlocksMarble,,214,,,{},other
+Wall4968,Wall,Tường,161,36,BlocksMarble,,219,,,{},other
+Wall4969,Wall,Tường,161,37,BlocksMarble,,196,,,{},other
+Wall4970,Wall,Tường,161,43,BlocksMarble,,201,,,{},other
+Wall4971,Wall,Tường,161,44,BlocksMarble,,206,,,{},other
+Wall4972,Wall,Tường,162,39,BlocksMarble,,250,,,{},other
+Wall4973,Wall,Tường,162,46,BlocksMarble,,221,,,{},other
+Wall4974,Wall,Tường,163,39,BlocksMarble,,277,,,{},other
+Wall4975,Wall,Tường,163,46,BlocksMarble,,251,,,{},other
+Wall4976,Wall,Tường,164,39,BlocksMarble,,279,,,{},other
+Wall4977,Wall,Tường,164,46,BlocksMarble,,270,,,{},other
+Wall4978,Wall,Tường,165,39,BlocksMarble,,337,,,{},other
+Door4979,Door,Cửa,166,39,BlocksMarble,,179,,,{},other
+Wall4980,Wall,Tường,167,40,BlocksMarble,,360,,,{},other
+Wall4981,Wall,Tường,167,41,BlocksMarble,,360,,,{},other
+Wall4982,Wall,Tường,167,42,BlocksMarble,,352,,,{},other
+Wall4983,Wall,Tường,167,43,BlocksMarble,,360,,,{},other
+Wall4984,Wall,Tường,167,44,BlocksMarble,,360,,,{},other
+Wall4985,Wall,Tường,167,45,BlocksMarble,,352,,,{},other
+Wall4986,Wall,Tường,167,46,BlocksMarble,,360,,,{},other
+AncientFence4987,AncientFence,Hàng rào cổ,161,32,,,28,,,{},other
+AncientFence4988,AncientFence,Hàng rào cổ,162,32,,,34,,,{},other
+AncientFence4989,AncientFence,Hàng rào cổ,163,32,,,34,,,{},other
+AncientFence4990,AncientFence,Hàng rào cổ,164,32,,,42,,,{},other
+AncientFence4991,AncientFence,Hàng rào cổ,165,32,,,41,,,{},other
+AncientFence4992,AncientFence,Hàng rào cổ,166,32,,,48,,,{},other
+AncientFence4993,AncientFence,Hàng rào cổ,167,32,,,50,,,{},other
+AncientFence4994,AncientFence,Hàng rào cổ,167,33,,,50,,,{},other
+AncientFence4995,AncientFence,Hàng rào cổ,167,34,,,49,,,{},other
+AncientFence4996,AncientFence,Hàng rào cổ,167,35,,,50,,,{},other
+AncientFence4997,AncientFence,Hàng rào cổ,167,36,,,50,,,{},other
+AncientFence4998,AncientFence,Hàng rào cổ,167,37,,,50,,,{},other
+AncientFence4999,AncientFence,Hàng rào cổ,167,38,,,50,,,{},other
+AncientFence5000,AncientFence,Hàng rào cổ,167,39,,,47,,,{},other
+AncientWheel30632,AncientWheel,Bánh xe cổ,59,49,,,150,,,{},other
+AncientRazorWire30591,AncientRazorWire,Dây kẽm gai cổ,56,201,,,30,,,{},other
+AncientWheel30663,AncientWheel,Bánh xe cổ,129,108,,,150,,,{},other
+AncientFence30575,AncientFence,Hàng rào cổ,120,67,,,50,,,{},other
+AncientFence30579,AncientFence,Hàng rào cổ,120,71,,,50,,,{},other
+AncientWheel30687,AncientWheel,Bánh xe cổ,137,117,,,150,,,{},other
+AncientFence30577,AncientFence,Hàng rào cổ,120,69,,,50,,,{},other
+AncientRazorWire30590,AncientRazorWire,Dây kẽm gai cổ,55,201,,,30,,,{},other
+AncientWheel30688,AncientWheel,Bánh xe cổ,133,128,,,150,,,{},other
+AncientRustedEngineBlock30680,AncientRustedEngineBlock,Khối động cơ gỉ cổ,145,111,,,350,,,{},other
+AncientWheel30647,AncientWheel,Bánh xe cổ,53,57,,,150,,,{},other
+AncientWheel30633,AncientWheel,Bánh xe cổ,62,63,,,150,,,{},other
+AncientRazorWire30593,AncientRazorWire,Dây kẽm gai cổ,59,201,,,30,,,{},other
+AncientRazorWire30585,AncientRazorWire,Dây kẽm gai cổ,52,206,,,30,,,{},other
+AncientRazorWire30588,AncientRazorWire,Dây kẽm gai cổ,53,201,,,30,,,{},other
+AncientWheel30677,AncientWheel,Bánh xe cổ,145,122,,,150,,,{},other
+AncientRazorWire30594,AncientRazorWire,Dây kẽm gai cổ,60,201,,,30,,,{},other
+AncientFence30578,AncientFence,Hàng rào cổ,120,70,,,50,,,{},other
+AncientWheel30682,AncientWheel,Bánh xe cổ,126,118,,,150,,,{},other
+AncientWheel30675,AncientWheel,Bánh xe cổ,133,129,,,150,,,{},other
+AncientMechDropBeacon30497,AncientMechDropBeacon,Đèn thả mech cổ,80,76,,,50,,,{},other
+AncientShipBeacon30573,AncientShipBeacon,Đèn hiệu tàu cổ,56,31,,,50,,,{},other
+AncientShipBeacon30574,AncientShipBeacon,Đèn hiệu tàu cổ,65,31,,,50,,,{},other
+AncientFence30576,AncientFence,Hàng rào cổ,120,68,,,50,,,{},other
+AncientFence30580,AncientFence,Hàng rào cổ,120,73,,,50,,,{},other
+AncientFence30581,AncientFence,Hàng rào cổ,118,73,,,50,,,{},other
+AncientFence30582,AncientFence,Hàng rào cổ,117,73,,,50,,,{},other
+AncientFence30583,AncientFence,Hàng rào cổ,116,73,,,50,,,{},other
+AncientRazorWire30584,AncientRazorWire,Dây kẽm gai cổ,52,207,,,30,,,{},other
+AncientRazorWire30586,AncientRazorWire,Dây kẽm gai cổ,52,202,,,30,,,{},other
+AncientRazorWire30587,AncientRazorWire,Dây kẽm gai cổ,52,201,,,30,,,{},other
+AncientRazorWire30589,AncientRazorWire,Dây kẽm gai cổ,54,201,,,30,,,{},other
+AncientRazorWire30592,AncientRazorWire,Dây kẽm gai cổ,57,201,,,30,,,{},other
+AncientRazorWire30595,AncientRazorWire,Dây kẽm gai cổ,61,201,,,30,,,{},other
+AncientWheel30620,AncientWheel,Bánh xe cổ,62,57,,,150,,,{},other
+AncientWheel30642,AncientWheel,Bánh xe cổ,47,57,,,150,,,{},other
+AncientSmallCrate30699,AncientSmallCrate,Thùng nhỏ cổ,211,31,,,150,,,{},other
+AncientRefrigerator30705,AncientRefrigerator,Tủ lạnh cổ,211,32,,,200,,,{},other
+AncientCryptosleepCasket4816,AncientCryptosleepCasket,Kén ngủ đông cổ,199,71,,,250,,1,{},other
+AncientExostriderLeg36658,AncientExostriderLeg,Chân exostrider cổ,200,195,,,1000,,3,{},other
+Sarcophagus4870,Sarcophagus,Quan tài,231,44,Steel,Normal,232,,2,{},other
+AncientOperatingTable30707,AncientOperatingTable,Bàn mổ cổ,214,29,,,140,,1,{},other
+AncientOperatingTable30711,AncientOperatingTable,Bàn mổ cổ,217,29,,,140,,,{},other
+Sarcophagus4790,Sarcophagus,Quan tài,196,76,Steel,Normal,250,,2,{},other
+AncientPipelineSection30600,AncientPipelineSection,Ống dẫn cổ,31,103,,,400,,,{},other
+AncientExostriderLeg36649,AncientExostriderLeg,Chân exostrider cổ,196,198,,,1000,,,{},other
+AncientCryptosleepCasket4822,AncientCryptosleepCasket,Kén ngủ đông cổ,199,67,,,250,,1,{},other
+AncientCryptosleepCasket4800,AncientCryptosleepCasket,Kén ngủ đông cổ,196,73,,,250,,1,{},other
+AncientHermeticCrate4853,AncientHermeticCrate,Thùng kín cổ,203,69,,,250,,3,"{""glowOn"": ""True""}",other
+AncientPipelineSection30596,AncientPipelineSection,Ống dẫn cổ,212,217,,,400,,,{},other
+AncientCryptosleepCasket4842,AncientCryptosleepCasket,Kén ngủ đông cổ,193,67,,,250,,1,{},other
+Sarcophagus4886,Sarcophagus,Quan tài,231,47,Steel,Normal,222,,,{},other
+AncientExostriderLeg36654,AncientExostriderLeg,Chân exostrider cổ,195,197,,,1000,,,{},other
+AncientCryptosleepCasket4809,AncientCryptosleepCasket,Kén ngủ đông cổ,202,71,,,250,,1,{},other
+AncientCryptosleepCasket4833,AncientCryptosleepCasket,Kén ngủ đông cổ,196,67,,,250,,1,{},other
+SteamGeyser30495,SteamGeyser,Mạch nước nóng,62,128,,,,,,{},other
+SteamGeyser30492,SteamGeyser,Mạch nước nóng,102,48,,,,,,{},other
+AncientGiantWheel30659,AncientGiantWheel,Bánh xe khổng lồ cổ,45,67,,,300,,,{},other
+AncientGiantWheel30649,AncientGiantWheel,Bánh xe khổng lồ cổ,52,73,,,300,,,{},other
+AncientGenerator5001,AncientGenerator,Máy phát cổ,164,35,,,188,,,{},other
+AncientGiantWheel30644,AncientGiantWheel,Bánh xe khổng lồ cổ,65,63,,,300,,,{},other
+SteleLarge4750,SteleLarge,Bia đá lớn,202,67,BlocksMarble,,240,,,{},other
+ShipChunk5041,ShipChunk,Mảnh tàu,135,165,,,300,,1,{},other
