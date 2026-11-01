@@ -1,0 +1,122 @@
+﻿id,def,name,x,z,stack,stuff,quality,health,zone
+BiomutationPulser4798,BiomutationPulser,Máy tạo đột biến,198,77,1,,,80,
+Luciferium4796,Luciferium,Luciferium,201,74,15,,,50,
+Steel5050,Steel,Thép,15,232,75,,,,
+Steel5051,Steel,Thép,15,234,43,,,,
+Steel5052,Steel,Thép,21,231,2,,,,
+WoodLog47254,WoodLog,Gỗ,105,134,63,,,150,Vùng kho chứa 1
+MedicineHerbal54913,MedicineHerbal,Thuốc thảo dược,104,144,1,,,60,Vùng kho chứa 1
+WoodLog54775,WoodLog,Gỗ,94,134,75,,,150,Vùng kho chứa 1
+WoodLog45331,WoodLog,Gỗ,94,144,32,,,150,Vùng kho chứa 1
+WoodLog37161,WoodLog,Gỗ,99,137,75,,,147,Vùng kho chứa 1
+WoodLog37148,WoodLog,Gỗ,98,137,75,,,145,Vùng kho chứa 1
+WoodLog43901,WoodLog,Gỗ,94,140,75,,,144,Vùng kho chứa 1
+WoodLog37505,WoodLog,Gỗ,95,135,75,,,147,Vùng kho chứa 1
+WoodLog5035,WoodLog,Gỗ,95,134,75,,,149,Vùng kho chứa 1
+WoodLog43340,WoodLog,Gỗ,102,138,75,,,147,Vùng kho chứa 1
+WoodLog37754,WoodLog,Gỗ,96,136,75,,,145,Vùng kho chứa 1
+WoodLog46989,WoodLog,Gỗ,101,133,75,,,150,Vùng kho chứa 1
+RawRice53762,RawRice,Gạo sống,98,130,75,,,60,Vùng kho chứa 1
+WoodLog37176,WoodLog,Gỗ,103,136,75,,,141,Vùng kho chứa 1
+WoodLog38287,WoodLog,Gỗ,96,137,75,,,148,Vùng kho chứa 1
+WoodLog37625,WoodLog,Gỗ,104,135,75,,,142,Vùng kho chứa 1
+WoodLog64888,WoodLog,Gỗ,106,150,22,,,150,
+WoodLog43770,WoodLog,Gỗ,97,137,75,,,147,Vùng kho chứa 1
+Steel45341,Steel,Thép,94,132,75,,,,Vùng kho chứa 1
+WoodLog38318,WoodLog,Gỗ,94,139,75,,,148,Vùng kho chứa 1
+WoodLog55991,WoodLog,Gỗ,101,135,75,,,150,Vùng kho chứa 1
+WoodLog43999,WoodLog,Gỗ,95,140,75,,,147,Vùng kho chứa 1
+Steel44015,Steel,Thép,96,138,75,,,,Vùng kho chứa 1
+Steel5030,Steel,Thép,100,134,75,,,,Vùng kho chứa 1
+WoodLog37759,WoodLog,Gỗ,99,138,75,,,147,Vùng kho chứa 1
+ComponentIndustrial5005,ComponentIndustrial,Linh kiện công nghiệp,98,132,30,,,36,Vùng kho chứa 1
+WoodLog44843,WoodLog,Gỗ,102,142,75,,,145,Vùng kho chứa 1
+WoodLog55954,WoodLog,Gỗ,98,133,75,,,150,Vùng kho chứa 1
+MeleeWeapon_Knife46158,MeleeWeapon_Knife,Dao,100,138,1,Steel,Poor,36,Vùng kho chứa 1
+GravlitePanel46608,GravlitePanel,Tấm Gravlite,225,16,58,,,100,
+WoodLog38244,WoodLog,Gỗ,102,139,75,,,143,Vùng kho chứa 1
+Steel5027,Steel,Thép,98,138,75,,,,Vùng kho chứa 1
+MeleeWeapon_Knife58442,MeleeWeapon_Knife,Dao,112,150,1,Steel,Poor,22,
+WoodLog43375,WoodLog,Gỗ,97,141,75,,,146,Vùng kho chứa 1
+WoodLog44229,WoodLog,Gỗ,95,143,75,,,149,Vùng kho chứa 1
+RawRice53815,RawRice,Gạo sống,102,132,74,,,60,Vùng kho chứa 1
+WoodLog5037,WoodLog,Gỗ,102,140,18,,,137,Vùng kho chứa 1
+WoodLog38109,WoodLog,Gỗ,96,139,75,,,147,Vùng kho chứa 1
+GravlitePanel46620,GravlitePanel,Tấm Gravlite,212,2,58,,,100,
+WoodLog43403,WoodLog,Gỗ,98,141,10,,,144,Vùng kho chứa 1
+WoodLog44701,WoodLog,Gỗ,94,137,65,,,145,Vùng kho chứa 1
+WoodLog43881,WoodLog,Gỗ,95,142,75,,,147,Vùng kho chứa 1
+WoodLog52295,WoodLog,Gỗ,104,137,61,,,150,Vùng kho chứa 1
+WoodLog69971,WoodLog,Gỗ,105,153,51,,,150,
+RawRice53083,RawRice,Gạo sống,99,136,75,,,60,Vùng kho chứa 1
+WoodLog53880,WoodLog,Gỗ,103,143,72,,,150,Vùng kho chứa 1
+WoodLog45103,WoodLog,Gỗ,97,130,27,,,150,Vùng kho chứa 1
+Apparel_BasicShirt58441,Apparel_BasicShirt,Áo sơ mi cơ bản,105,144,1,Cloth,Normal,34,Vùng kho chứa 1
+Steel54099,Steel,Thép,95,138,75,,,,Vùng kho chứa 1
+RawRice65030,RawRice,Gạo sống,114,134,4,,,58,
+Steel5043,Steel,Thép,97,136,51,,,,Vùng kho chứa 1
+WoodLog55771,WoodLog,Gỗ,104,131,75,,,150,Vùng kho chứa 1
+WoodLog38323,WoodLog,Gỗ,98,139,75,,,145,Vùng kho chứa 1
+WoodLog46807,WoodLog,Gỗ,102,134,75,,,150,Vùng kho chứa 1
+WoodLog55927,WoodLog,Gỗ,99,140,13,,,150,Vùng kho chứa 1
+Steel5025,Steel,Thép,101,137,75,,,,Vùng kho chứa 1
+WoodLog59811,WoodLog,Gỗ,102,144,60,,,150,Vùng kho chứa 1
+WoodLog64868,WoodLog,Gỗ,108,151,51,,,150,
+Steel43850,Steel,Thép,94,136,75,,,,Vùng kho chứa 1
+GravlitePanel46615,GravlitePanel,Tấm Gravlite,220,15,58,,,100,
+WoodLog45205,WoodLog,Gỗ,104,136,35,,,150,Vùng kho chứa 1
+WoodLog46131,WoodLog,Gỗ,104,139,18,,,150,Vùng kho chứa 1
+RawRice53903,RawRice,Gạo sống,106,131,29,,,60,Vùng kho chứa 1
+WoodLog47348,WoodLog,Gỗ,104,132,57,,,150,Vùng kho chứa 1
+WoodLog45169,WoodLog,Gỗ,103,135,75,,,144,Vùng kho chứa 1
+WoodLog64853,WoodLog,Gỗ,108,150,20,,,150,
+WoodLog55961,WoodLog,Gỗ,99,134,75,,,150,Vùng kho chứa 1
+WoodLog70052,WoodLog,Gỗ,101,152,3,,,150,
+Silver36693,Silver,Bạc,99,141,500,,,,Vùng kho chứa 1
+GravlitePanel46627,GravlitePanel,Tấm Gravlite,231,1,58,,,100,
+WoodLog45335,WoodLog,Gỗ,101,144,75,,,150,Vùng kho chứa 1
+Steel5047,Steel,Thép,98,136,26,,,,Vùng kho chứa 1
+WoodLog64921,WoodLog,Gỗ,103,148,31,,,150,
+WoodLog59658,WoodLog,Gỗ,102,143,75,,,150,Vùng kho chứa 1
+WoodLog59130,WoodLog,Gỗ,105,135,75,,,150,Vùng kho chứa 1
+Steel5026,Steel,Thép,95,139,75,,,,Vùng kho chứa 1
+Steel5053,Steel,Thép,101,140,60,,,,Vùng kho chứa 1
+WoodLog52727,WoodLog,Gỗ,100,135,75,,,150,Vùng kho chứa 1
+GravlitePanel46639,GravlitePanel,Tấm Gravlite,232,9,58,,,100,
+WoodLog43323,WoodLog,Gỗ,102,141,75,,,145,Vùng kho chứa 1
+WoodLog64952,WoodLog,Gỗ,103,150,51,,,149,
+WoodLog46151,WoodLog,Gỗ,98,135,75,,,150,Vùng kho chứa 1
+WoodLog45098,WoodLog,Gỗ,96,135,2,,,150,Vùng kho chứa 1
+WoodLog38074,WoodLog,Gỗ,98,140,75,,,149,Vùng kho chứa 1
+Steel44356,Steel,Thép,106,135,40,,,,Vùng kho chứa 1
+WoodLog37655,WoodLog,Gỗ,95,141,75,,,143,Vùng kho chứa 1
+WoodLog37503,WoodLog,Gỗ,104,138,75,,,143,Vùng kho chứa 1
+Steel5045,Steel,Thép,105,131,5,,,,Vùng kho chứa 1
+WoodLog37110,WoodLog,Gỗ,100,137,75,,,144,Vùng kho chứa 1
+WoodLog54891,WoodLog,Gỗ,97,133,75,,,150,Vùng kho chứa 1
+WoodLog69990,WoodLog,Gỗ,104,153,49,,,150,
+WoodLog37404,WoodLog,Gỗ,102,137,75,,,145,Vùng kho chứa 1
+WoodLog38028,WoodLog,Gỗ,103,139,75,,,147,Vùng kho chứa 1
+WoodLog46755,WoodLog,Gỗ,96,134,75,,,141,Vùng kho chứa 1
+WoodLog44185,WoodLog,Gỗ,94,142,75,,,149,Vùng kho chứa 1
+Gun_Autopistol5013,Gun_Autopistol,Súng ngắn tự động,97,142,1,,Normal,63,Vùng kho chứa 1
+WoodLog64828,WoodLog,Gỗ,101,136,60,,,150,Vùng kho chứa 1
+WoodLog44083,WoodLog,Gỗ,101,142,75,,,148,Vùng kho chứa 1
+WoodLog43290,WoodLog,Gỗ,97,139,75,,,147,Vùng kho chứa 1
+Steel64746,Steel,Thép,100,140,60,,,,Vùng kho chứa 1
+Apparel_Pants670,Apparel_Pants,Quần,106,138,1,Synthread,Normal,117,Vùng kho chứa 1
+Silver5002,Silver,Bạc,100,130,300,,,,Vùng kho chứa 1
+WoodLog43360,WoodLog,Gỗ,101,139,75,,,147,Vùng kho chứa 1
+WoodLog64752,WoodLog,Gỗ,100,143,49,,,150,Vùng kho chứa 1
+WoodLog37740,WoodLog,Gỗ,103,137,75,,,146,Vùng kho chứa 1
+WoodLog38068,WoodLog,Gỗ,94,138,75,,,148,Vùng kho chứa 1
+WoodLog37779,WoodLog,Gỗ,97,138,75,,,146,Vùng kho chứa 1
+RawRice53109,RawRice,Gạo sống,98,142,75,,,60,Vùng kho chứa 1
+Steel44353,Steel,Thép,106,137,25,,,,Vùng kho chứa 1
+WoodLog54768,WoodLog,Gỗ,105,130,75,,,150,Vùng kho chứa 1
+WoodLog44759,WoodLog,Gỗ,95,144,45,,,149,Vùng kho chứa 1
+WoodLog45118,WoodLog,Gỗ,95,131,28,,,150,Vùng kho chứa 1
+MedicineIndustrial36686,MedicineIndustrial,Thuốc công nghiệp,101,131,24,,,36,Vùng kho chứa 1
+GravlitePanel46634,GravlitePanel,Tấm Gravlite,213,7,58,,,100,
+RawBerries64897,RawBerries,Raw Berries,105,150,10,,,58,
+WoodLog64879,WoodLog,Gỗ,106,151,30,,,149,
