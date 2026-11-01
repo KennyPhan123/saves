@@ -1,3 +1,6 @@
+> ⚠️ **BÁO CÁO CŨ** — snapshot tại tick 791.289 (`state.json` gốc trong repo).
+> Save đã tiến tới tick **821.158** (+12 giờ game). Xem **`hien-trang-save-vai-o.md`** để có hiện trạng mới nhất.
+
 # BÁO CÁO SAVE “vãi ò” — RimWorld 1.7.4984 rev1242
 
 > Đọc trực tiếp từ file `vãi ò.rws` (13,7 MB XML). DLC: Core + Royalty + Ideology + Biotech + Anomaly + Odyssey. Không có mod ngoài.
