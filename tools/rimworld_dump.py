@@ -1484,23 +1484,30 @@ def extract_pawn(save: SaveFile, p, mapdata=None, full_fields=False):
                 tdef = li.findtext("def")
                 if not tdef:
                     continue
-                key = (tdef, li.findtext("otherPawn"), li.findtext("age"))
+                target_id = li.findtext("targetThingID")
+                raw_age = li.findtext("age")
+                key = (tdef, li.findtext("otherPawn"), raw_age, target_id)
                 if key in seen:
                     continue
                 seen.add(key)
+                # RimWorld Thought_Memory.ExposeData() bỏ qua thẻ <age> khi age == 0 (vừa mới xảy ra)
+                age_ticks = num(raw_age, 0)
                 d["thoughts"].append({
                     "def": tdef,
                     "name": label(tdef, THOUGHTS),
                     "class": li.attrib.get("Class"),
-                    "age_ticks": num(li.findtext("age")),
+                    "age_ticks": age_ticks,
+                    "age_inferred_zero": raw_age is None,
                     "otherPawn": li.findtext("otherPawn"),
                     "otherPawn_name": other_pawn_label(save, li.findtext("otherPawn")),
                     "opinionOffset": num(li.findtext("opinionOffset")),
                     "moodPowerFactor": num(li.findtext("moodPowerFactor")),
                     "food": li.findtext("foodThoughtDescription"),
                     "stage": li.findtext("stage"),
+                    "targetThingID": target_id if target_id not in (None, "null") else None,
                     "sourcePrecept": li.findtext("sourcePrecept") if li.findtext("sourcePrecept") not in (None, "null") else None,
                 })
+            d["thoughts"].sort(key=lambda t: t["age_ticks"] if t["age_ticks"] is not None else 0)
     # tổng độ lệch thiện cảm từ ký ức xã hội, theo từng người
     opin = defaultdict(float)
     for t in d["thoughts"]:
@@ -1562,12 +1569,21 @@ def extract_pawn(save: SaveFile, p, mapdata=None, full_fields=False):
         for i, v in enumerate(vals)
     ]
     d["work_raw"] = vals
-    d["medCare"] = txt(p, "playerSettings/medCare")
-    d["hostilityResponse"] = txt(p, "playerSettings/hostilityResponse")
-    d["selfTend"] = txt(p, "playerSettings/selfTend")
-    d["master"] = txt(p, "playerSettings/master")
-    d["displayOrder"] = num(txt(p, "playerSettings/displayOrder"))
-    d["joinTick"] = num(txt(p, "playerSettings/joinTick"))
+    ps = p.find("playerSettings")
+    has_ps = ps is not None and ps.attrib.get("IsNull") != "True"
+    raw_med = txt(ps, "medCare")
+    raw_hr = txt(ps, "hostilityResponse")
+    raw_st = txt(ps, "selfTend")
+    # RimWorld Pawn_PlayerSettings.ExposeData() không ghi thẻ khi bằng giá trị mặc định (NoCare / Flee / False)
+    d["medCare"] = raw_med or ("NoCare" if has_ps else None)
+    d["medCare_default"] = raw_med is None and has_ps
+    d["hostilityResponse"] = raw_hr or ("Flee" if has_ps else None)
+    d["hostilityResponse_default"] = raw_hr is None and has_ps
+    d["selfTend"] = raw_st or ("False" if has_ps else None)
+    d["selfTend_default"] = raw_st is None and has_ps
+    d["master"] = txt(ps, "master")
+    d["displayOrder"] = num(txt(ps, "displayOrder"))
+    d["joinTick"] = num(txt(ps, "joinTick"))
     d["allowedAreas"] = [
         {"key": k.findtext("key"), "value": (k.findtext("value") or "")}
         for k in p.findall("playerSettings/allowedAreas/keys/li")
@@ -1965,7 +1981,9 @@ def extract_map(save: SaveFile, md: MapData, full_fields=False):
     # -- designations --------------------------------------------------------
     for li in md.el.findall("designationManager/allDesignations/li"):
         target = li.findtext("target")
-        el = md.by_id.get(target) or save.things_by_id.get(target)
+        el = md.by_id.get(target)
+        if el is None:
+            el = save.things_by_id.get(target)
         pos = parse_pos(el.findtext("pos")) if el is not None else parse_pos(target)
         tdef = el.findtext("def") if el is not None else None
         if tdef is None and pos and g is not None and g.rock is not None and g.inside(*pos):
@@ -3114,6 +3132,7 @@ def extract_tales(save):
                 "weather": sur.findtext("weather"),
             } if sur is not None and sur.attrib.get("IsNull") != "True" else None,
         })
+    out.sort(key=lambda r: (r["tick"] is None, r["tick"] or 0))
     return out
 
 
@@ -3268,15 +3287,6 @@ def extract_battle_log(save):
             else:
                 other[cls] += 1
 
-        # nhãn trùng nhau trong cùng một trận (hai con sóc khác nhau…) -> đánh số
-        by_label = defaultdict(list)
-        for ref, p in people.items():
-            by_label[p["label"]].append(ref)
-        for lab, refs in by_label.items():
-            if len(refs) > 1:
-                for k, ref in enumerate(sorted(refs), 1):
-                    people[ref]["label"] = f"{lab}#{k}"
-
         created = num(b.findtext("creationTimestamp"))
         start = min(ticks) if ticks else created
         end = max(ticks) if ticks else created
@@ -3299,6 +3309,39 @@ def extract_battle_log(save):
             "involves_colony": any(p["side"] == "Player" for p in people.values()),
         })
     out.sort(key=lambda r: r["start_tick"] if r["start_tick"] is not None else 0)
+
+    # Đánh số cố định xuyên suốt toàn bộ battleLog cho các cá thể trùng nhãn (vd. Ibex#1..Ibex#4)
+    # theo đúng thứ tự xuất hiện lần đầu để cùng một con thú luôn giữ nguyên một mã qua mọi dòng.
+    by_label = defaultdict(list)
+    for b in out:
+        for p in sorted(b["participants"], key=lambda x: x["ref"]):
+            if not p.get("is_thing") and p["ref"] not in by_label[p["label"]]:
+                by_label[p["label"]].append(p["ref"])
+    global_num = {ref: f"{lab}#{i}" for lab, refs in by_label.items() if len(refs) > 1 for i, ref in enumerate(refs, 1)}
+    all_people = {}
+    for b in out:
+        for p in b["participants"]:
+            if p["ref"] in global_num:
+                p["label"] = global_num[p["ref"]]
+            all_people[p["ref"]] = p
+
+    # Truy ngược kẻ gây thương tích gần nhất cho các kết cục gục/chết vì mất máu (by=None ở dòng riêng)
+    wounds = []
+    for b in out:
+        for x in b["exchanges"]:
+            if x.get("hits", 0) > 0 and x.get("from") and x.get("to") and x["from"] != x["to"]:
+                t_hit = x["last_tick"] if x.get("last_tick") is not None else (b["start_tick"] or 0)
+                wounds.append((t_hit, x["from"], x["to"]))
+    wounds.sort(key=lambda w: w[0])
+    for b in out:
+        for o in b["outcomes"]:
+            if not o.get("by") and o.get("who"):
+                t_out = o["tick"] if o.get("tick") is not None else (b["end_tick"] or 0)
+                prior = [att for tk, att, vic in wounds if vic == o["who"] and tk <= t_out]
+                if prior:
+                    att_ref = prior[-1]
+                    o["inferred_by"] = att_ref
+                    o["inferred_by_label"] = all_people[att_ref]["label"] if att_ref in all_people else att_ref
     return out
 
 
@@ -3344,8 +3387,11 @@ def battle_sides(b):
         groups[key].append(p["label"])
     bits = []
     for (order, name), labels in sorted(groups.items()):
-        cnt = Counter(re.sub(r"#\d+$", "", x) for x in labels)
-        names = ", ".join(f"{k}×{v}" if v > 1 else k for k, v in cnt.items())
+        if len(labels) <= 4:
+            names = ", ".join(labels)
+        else:
+            cnt = Counter(re.sub(r"#\d+$", "", x) for x in labels)
+            names = ", ".join(f"{k}×{v}" if v > 1 else k for k, v in cnt.items())
         bits.append(names if order == 0 else f"{names} ({name})")
     return " ↔ ".join(bits) or "—"
 
@@ -3410,11 +3456,18 @@ def battle_text(b, with_exchanges=True):
                     extra.append(f"huỷ {x['parts_destroyed']} bộ phận")
                 parts.append(t + (f" [{', '.join(extra)}]" if extra else ""))
             bits.append(f"{L(a)} → {L(c)}: " + " + ".join(parts))
+    long_battle = ((b.get("end_tick") or 0) - (b.get("start_tick") or 0)) >= 625  # >= 15 phút trong game
+    day_prefix = (b.get("date") or "").rsplit(" ", 1)[0]
     for o in b["outcomes"]:
         verb = {"Died": "CHẾT", "Downed": "gục"}.get(o["what"], o["what"])
         why = []
+        if long_battle and o.get("date"):
+            d_part, t_part = o["date"].rsplit(" ", 1) if " " in o["date"] else ("", o["date"])
+            why.append(f"lúc {t_part if d_part == day_prefix else o['date']}")
         if o["by"]:
             why.append(f"do {L(o['by'])}")
+        elif o.get("inferred_by_label"):
+            why.append(f"từ vết thương do {o['inferred_by_label']} gây trước đó")
         if o["cause"]:
             why.append(f"`{o['cause']}`")
         bits.append(f"**{L(o['who'])} {verb}**" + (f" ({', '.join(why)})" if why else ""))
@@ -3424,11 +3477,13 @@ def battle_text(b, with_exchanges=True):
 def combat_record(battles):
     """Thành tích của từng pawn thuộc địa trên toàn bộ battleLog: bắn / cận chiến / bị trúng / hạ được ai."""
     rec = {}
+    all_ppl = {p["ref"]: p for b in battles for p in b["participants"]}
 
     def R(p):
         return rec.setdefault(p["ref"], {"label": re.sub(r"#\d+$", "", p["label"]), "human": p["human"],
                                          "ranged": defaultdict(lambda: [0, 0, 0, 0]),
-                                         "melee": [0, 0], "taken": 0, "downed": 0, "kills": Counter(), "downs_dealt": 0})
+                                         "melee": [0, 0], "taken": 0, "downed": 0,
+                                         "kills": Counter(), "bleed_kills": 0, "downs_dealt": 0})
 
     for b in battles:
         ppl = battle_people(b)
@@ -3447,14 +3502,19 @@ def combat_record(battles):
             if c and c["side"] == "Player":
                 R(c)["taken"] += x["hits"]
         for o in b["outcomes"]:
-            who, by = ppl.get(o["who"]), ppl.get(o["by"])
+            who = ppl.get(o["who"]) or all_ppl.get(o["who"])
+            by = ppl.get(o["by"]) or all_ppl.get(o["by"])
+            inf_by = all_ppl.get(o.get("inferred_by")) if not by and o.get("inferred_by") else None
             if who and who["side"] == "Player" and o["what"] == "Downed":
                 R(who)["downed"] += 1
-            if by and by["side"] == "Player" and who:
+            credit = by if (by and by["side"] == "Player") else (inf_by if (inf_by and inf_by["side"] == "Player") else None)
+            if credit and who:
                 if o["what"] == "Died":
-                    R(by)["kills"][re.sub(r"#\d+$", "", who["label"]) if who["human"] else who["def"]] += 1
+                    R(credit)["kills"][re.sub(r"#\d+$", "", who["label"]) if who["human"] else who["def"]] += 1
+                    if not by and inf_by:
+                        R(credit)["bleed_kills"] += 1
                 elif o["what"] == "Downed":
-                    R(by)["downs_dealt"] += 1
+                    R(credit)["downs_dealt"] += 1
     return rec
 
 
@@ -3489,14 +3549,16 @@ def block_battle_log(d, save, state, level=3):
     battles = state.get("battle_log") or []
     if not battles:
         return False
+    now = save.ticks_game
     n_entries = sum(b["entries"] for b in battles)
     d.h(level, f"Nhật ký chiến đấu (`battleLog`: {len(battles)} trận, {n_entries:,} dòng gốc)")
     d.p("Game ghi lại từng phát bắn, từng đòn đánh (kể cả đi săn và thú hoang săn nhau) rồi gom thành «trận». "
         "Ở đây đã gộp theo cặp: «bắn 12 trúng 3» = bắn ra 12 phát, 3 phát trúng đúng mục tiêu; "
         "«cận chiến 5 trúng 2» = ra 5 đòn, trúng 2 (cận chiến kèm tên súng = dùng báng/nòng súng để đánh). "
-        "«vướng vật cản» = viên đạn trượt mục tiêu và găm vào cây/tường/đá. Tên dạng `Loài` là thú không có tên riêng; "
-        "`#1`, `#2` phân biệt các con cùng loài trong một trận. Dòng chỉ có kết cục (không có đòn đánh) là "
-        "con vật/người gục hoặc chết sau trận vì mất máu, bệnh…")
+        "«vướng vật cản» = viên đạn trượt mục tiêu và găm vào cây/tường/đá. Tên dạng `Loài#1`, `Loài#2` là mã cố định "
+        "xuyên suốt toàn bộ bảng để theo dõi đúng cùng một con vật qua nhiều dòng. Các dòng xếp theo giờ bắt đầu của từng «trận»; "
+        "với trận kéo dài nhiều giờ, giờ cụ thể của từng kết cục gục/chết được ghi ngay trong ngoặc. Dòng chỉ có kết cục "
+        "(không có đòn đánh) là con vật/người gục hoặc chết sau trận vì mất máu, bệnh…")
 
     rec = combat_record(battles)
     if rec:
@@ -3518,7 +3580,8 @@ def block_battle_log(d, save, state, level=3):
             if r["downed"]:
                 bits.append(f"bị gục {r['downed']} lần")
             if r["kills"]:
-                bits.append("đã giết: " + ", ".join(f"{k}×{v}" if v > 1 else k for k, v in r["kills"].most_common()))
+                bleed = f" (gồm {r['bleed_kills']} chết sau đó do mất máu)" if r.get("bleed_kills") else ""
+                bits.append("đã giết" + bleed + ": " + ", ".join(f"{k}×{v}" if v > 1 else k for k, v in r["kills"].most_common()))
             lines.append(f"- **{r['label']}**" + ("" if r["human"] else " (thú của thuộc địa)") + ": " + "; ".join(bits) + ".")
         blocked = Counter()
         for b in battles:
@@ -3529,8 +3592,10 @@ def block_battle_log(d, save, state, level=3):
                + (f", … và {len(blocked) - 15} loại khác" if len(blocked) > 15 else "") + "."
                if blocked else ""))
 
-    d.table(["Lúc", "Các bên", "Diễn biến → kết cục"],
-            [[battle_when(b), battle_sides(b), battle_text(b)] for b in battles])
+    d.table(["Lúc", "Cách đây (ngày)", "Các bên", "Diễn biến → kết cục"],
+            [[battle_when(b),
+              f"{(now - b['start_tick']) / TICKS_PER_DAY:.1f}" if b.get("start_tick") is not None else "—",
+              battle_sides(b), battle_text(b)] for b in battles])
     return True
 
 
@@ -3539,6 +3604,7 @@ def block_play_log(d, save, state, level=3, full=False):
     log = state.get("play_log") or []
     if not log:
         return False
+    now = save.ticks_game
     on_map = {"Thing_" + p["id"]: (p["nick"] or p["name"]) for mp in state["maps"] for p in mp["pawns"]}
     d.h(level, f"Tương tác xã hội gần đây (`playLog`: {len(log)} dòng)")
     span = [x for x in log if x["tick"] is not None]
@@ -3563,8 +3629,9 @@ def block_play_log(d, save, state, level=3, full=False):
                  for (a, b), c in sorted(cnt.items(), key=lambda kv: -sum(kv[1].values()))])
     notable = [x for x in log if x["def"] not in INTERACTION_ROUTINE]
     if notable:
-        d.p("**Đáng chú ý (không phải chuyện phiếm):** " + "; ".join(
-            f"{x['date']} — {nm(x['initiator'])} → {nm(x['recipient'])}: {vi(x['def'])}"
+        d.p("**Đáng chú ý (không phải chuyện phiếm, xếp từ cũ → mới):** " + "; ".join(
+            f"{x['date']}" + (f" ({(now - x['tick']) / TICKS_PER_DAY:.1f} ngày trước)" if x.get("tick") is not None else "")
+            + f" — {nm(x['initiator'])} → {nm(x['recipient'])}: {vi(x['def'])}"
             + (f" [{', '.join(x['extras'])}]" if x["extras"] else "") for x in notable) + ".")
     else:
         d.p("Không có tương tác nào ngoài chuyện phiếm.")
@@ -3587,6 +3654,49 @@ def block_play_log(d, save, state, level=3, full=False):
         d.h(level + 1, "Toàn bộ các dòng")
         d.table(["Lúc", "Người mở lời", "Người nghe", "Loại", "Kèm theo"],
                 [[x["date"], nm(x["initiator"]), nm(x["recipient"]), vi(x["def"]), ", ".join(x["extras"])] for x in log])
+    return True
+
+
+def block_recent_timeline(d, save, state, days=3, level=3):
+    """Bảng dòng thời gian hợp nhất trong N ngày gần nhất (thư + thông báo + chiến đấu + tương tác đáng chú ý + sự kiện)."""
+    now = save.ticks_game
+    cut = now - days * TICKS_PER_DAY
+    events = []
+    for x in state.get("letters") or []:
+        tk = x.get("tick")
+        if tk is None or tk < cut:
+            continue
+        is_msg = x["class"] == "Message"
+        kind = "thông báo" if is_msg else f"THƯ (`{x['def']}`)"
+        body = (f"**{x['label']}** — " if x.get("label") else "") + clean_text(x["text"], 180)
+        events.append((tk, 0, x["date"], kind, body))
+    for t in state.get("tales") or []:
+        tk = t.get("tick")
+        if tk is None or tk < cut:
+            continue
+        if t["def"] in {"TradedWith", "TrainedAnimal", "Hunted", "Stripped", "Captured", "Recruited", "Marriage", "Breakup"}:
+            events.append((tk, 1, t["date"], f"sự kiện (`{t['def']}`)", tale_sentence(t)))
+    for b in state.get("battle_log") or []:
+        st = b.get("start_tick")
+        if st is None or (b.get("end_tick") or st) < cut:
+            continue
+        events.append((st, 2, battle_when(b), "chiến đấu", f"{battle_sides(b)} — {battle_text(b)}"))
+    for x in state.get("play_log") or []:
+        tk = x.get("tick")
+        if tk is None or tk < cut or x["def"] in INTERACTION_ROUTINE:
+            continue
+        a = x["initiator"]["label"] if x.get("initiator") else "?"
+        b = x["recipient"]["label"] if x.get("recipient") else "?"
+        vi = f"`{x['def']}`" + (f" ({INTERACTION_VI[x['def']]})" if x["def"] in INTERACTION_VI else "")
+        events.append((tk, 3, x["date"], "xã hội", f"{a} → {b}: {vi}"))
+    if not events:
+        return False
+    events.sort(key=lambda e: (e[0], e[1]))
+    d.h(level, f"Diễn biến {days} ngày gần nhất (gộp chung mọi nguồn theo đúng thứ tự thời gian)")
+    d.p("*Gộp thư, thông báo, trận đánh, sự kiện và xung đột xã hội trong 72 giờ qua thành một mạch duy nhất (cũ ở trên → mới nhất ở dưới).*")
+    rows = [[dt, f"{fmt_duration(now - tk)} trước ({(now - tk) / TICKS_PER_DAY:.1f} ngày)", kind, body]
+            for tk, _, dt, kind, body in events]
+    d.table(["Lúc", "Cách đây", "Nguồn", "Diễn biến"], rows)
     return True
 
 
@@ -3806,6 +3916,11 @@ def derive_alerts(save, state):
                             + (" — đang bị CẤM (forbidden), phải bỏ cấm mới nhặt được" if it.get("forbidden") == "True" else "")
                             for it in stock) if stock else ". Trên map không có vũ khí rời nào")
                         + ("; trên map đang có thú điên/kẻ địch." if danger else "."))
+                elif p.get("hostilityResponse") == "Flee" and p.get("equipment"):
+                    add(1, "Vũ trang",
+                        f"{nm} đang để chế độ phản ứng địch là `Flee`"
+                        + (" (mặc định)" if p.get("hostilityResponse_default") else "")
+                        + f" — sẽ tự bỏ chạy thay vì đánh trả khi không nhập ngũ, dù đang cầm `{p['equipment'][0]['def']}`.")
                 if not ms and p.get("healthState") == "Mobile":
                     able.append(p)
 
@@ -4636,14 +4751,15 @@ def render_pawn_md(d: Doc, save: SaveFile, pw: dict):
                               f"chủ nhà (hostFaction)={save.faction_name(g.get('hostFaction'))} · guestStatus={g.get('guestStatus') or '—'} · "
                               f"được người của bạn chữa {fmt_num(g.get('timesTendedByPlayer') or 0)} lần"),
         ("Quest tag", ", ".join(pw["questTags"]) or "—"),
-        ("Vào map lúc", save.fmt_tick(pw["spawnedTick"]) if pw.get("spawnedTick") else "—"),
+        ("Gia nhập / nhận (joinTick)", save.fmt_tick(pw["joinTick"]) if pw.get("joinTick") else ("từ đầu ván (0)" if pw.get("role") == "colonist" else "—")),
+        ("Spawn trên map gần nhất (spawnedTick)", f"{save.fmt_tick(pw['spawnedTick'])} (cập nhật cả khi được bê đặt xuống)" if pw.get("spawnedTick") else "—"),
         ("Tâm trạng", f"**{pw['mood'] * 100:.1f}%**" + (" ⚠" if pw["mood"] < 0.4 else "") if pw.get("mood") is not None else "—"),
         ("Thời gian liên tục dưới ngưỡng nhẹ / nặng / cực đoan",
          f"{fmt_duration(br.get('ticksBelowMinor', 0))} / {fmt_duration(br.get('ticksBelowMajor', 0))} / {fmt_duration(br.get('ticksBelowExtreme', 0))}"),
         ("Trạng thái sức khỏe (healthState)", pw.get("healthState")),
-        ("Med care", clean(pw["medCare"])),
-        ("Tự băng bó", clean(pw.get("selfTend"))),
-        ("Phản ứng", clean(pw["hostilityResponse"])),
+        ("Med care", clean(pw["medCare"]) + (" (mặc định)" if pw.get("medCare_default") else "")),
+        ("Tự băng bó", clean(pw.get("selfTend")) + (" (mặc định)" if pw.get("selfTend_default") else "")),
+        ("Phản ứng", clean(pw["hostilityResponse"]) + (" (mặc định)" if pw.get("hostilityResponse_default") else "")),
         ("Thứ tự hiển thị", pw["displayOrder"]),
         ("Giường riêng", f"{pw['ownedBed']} @{fmt_pos(pw.get('ownedBed_pos'))}" if pw.get("ownedBed") else "chưa có"),
         ("Điểm thiền", clean(pw.get("meditationSpot"))),
@@ -4877,6 +4993,7 @@ def hediff_rows(p):
 
 def thought_line(p):
     bits = []
+    dup_target = Counter((t["def"], t.get("otherPawn")) for t in p["thoughts"] if t.get("targetThingID"))
     for t in p["thoughts"]:
         s = f"`{t['def']}`"
         if t.get("otherPawn_name"):
@@ -4884,8 +5001,13 @@ def thought_line(p):
         extra = []
         if t.get("opinionOffset") is not None:
             extra.append(f"thiện cảm {t['opinionOffset']:+.0f}")
+        if t.get("targetThingID") and dup_target[(t["def"], t.get("otherPawn"))] > 1:
+            extra.append(f"vật #{t['targetThingID']}")
         if t.get("age_ticks") is not None:
-            extra.append(f"{t['age_ticks'] / TICKS_PER_DAY:.1f} ngày trước")
+            if t.get("age_inferred_zero") or t["age_ticks"] == 0:
+                extra.append("0.0 ngày trước — vừa xảy ra")
+            else:
+                extra.append(f"{t['age_ticks'] / TICKS_PER_DAY:.1f} ngày trước")
         if extra:
             s += f" ({', '.join(extra)})"
         bits.append(s)
@@ -4916,10 +5038,16 @@ def block_people_detail(d, save, p, level=3):
         + (f" · cảm hứng `{p['inspiration']}`" if p.get("inspiration") else ""),
     ]
     if p.get("role") != "colonist":
+        arr = []
+        if p.get("joinTick"):
+            arr.append(f"nhận lúc {save.fmt_tick(p['joinTick'])}")
+        if p.get("spawnedTick"):
+            arr.append(f"đặt xuống map/giường lần cuối lúc {save.fmt_tick(p['spawnedTick'])}" if p.get("joinTick")
+                       else f"vào map lúc {save.fmt_tick(p['spawnedTick'])}")
         lines.append(f"- **Thân phận:** hostFaction={save.faction_name(g.get('hostFaction')) if g.get('hostFaction') else '—'} · "
                      f"guestStatus={g.get('guestStatus') or '—'} · "
                      f"đã được chữa {fmt_num(g.get('timesTendedByPlayer') or 0)} lần · questTags: {', '.join(p['questTags']) or '—'}"
-                     + (f" · vào map lúc {save.fmt_tick(p['spawnedTick'])}" if p.get("spawnedTick") else ""))
+                     + (f" · {' · '.join(arr)}" if arr else ""))
     ms = p.get("mentalState_detail")
     br = p.get("mentalBreaker") or {}
     mood = f"- **Tâm trạng:** {p['mood'] * 100:.1f}%" if p.get("mood") is not None else "- **Tâm trạng:** —"
@@ -4944,7 +5072,7 @@ def block_people_detail(d, save, p, level=3):
         mood += " · **đang khủng hoảng:** " + ", ".join(bits)
     lines.append(mood)
     lines.append("- **Nhu cầu:** " + " · ".join(f"{n['def']} {pct(n['level'])}" for n in p["needs"] if n["def"] != "Mood"))
-    lines.append(f"- **Ký ức ảnh hưởng tâm trạng/thiện cảm ({len(p['thoughts'])}; `A`→X nghĩa là ký ức VỀ việc X đã làm/nói, "
+    lines.append(f"- **Ký ức ảnh hưởng tâm trạng/thiện cảm ({len(p['thoughts'])}, xếp từ mới → cũ; `A`→X nghĩa là ký ức VỀ việc X đã làm/nói, "
                  f"kéo theo thiện cảm với X):** {thought_line(p)}")
     if p.get("opinion_from_memories"):
         lines.append("- **Tổng thiện cảm từ ký ức:** " + ", ".join(f"{k} {v:+.0f}" for k, v in p["opinion_from_memories"].items()))
@@ -4964,8 +5092,11 @@ def block_people_detail(d, save, p, level=3):
     d.w(f"- **Mặc:** {gear_line(p['apparel'])} · **Cầm:** {gear_line(p['equipment'])} · **Túi:** {gear_line(p['inventory'])}"
         + (f" · **Đang bê:** {gear_line(p['carrying'])}" if p.get("carrying") else ""))
     bed = f"{p['ownedBed']} @{fmt_pos(p.get('ownedBed_pos'))}" if p.get("ownedBed") else "chưa có"
-    d.w(f"- **Thiết lập:** giường riêng: {bed} · y tế: {clean(p['medCare'])} · tự băng: {clean(p.get('selfTend'))} · "
-        f"phản ứng địch: {clean(p['hostilityResponse'])} · trang phục «{policy_label(p['outfit'])}» · "
+    med_s = clean(p["medCare"]) + (" (mặc định)" if p.get("medCare_default") else "")
+    st_s = clean(p.get("selfTend")) + (" (mặc định)" if p.get("selfTend_default") else "")
+    hr_s = clean(p["hostilityResponse"]) + (" (mặc định)" if p.get("hostilityResponse_default") else "")
+    d.w(f"- **Thiết lập:** giường riêng: {bed} · y tế: {med_s} · tự băng: {st_s} · "
+        f"phản ứng địch: {hr_s} · trang phục «{policy_label(p['outfit'])}» · "
         f"thuốc «{policy_label(p['drugPolicy'])}» · ăn «{policy_label(p['foodPolicy'])}»")
     if p["timetable"]:
         d.w(f"- **Lịch 24h:** {compress_timetable(p['timetable'])}")
@@ -5448,10 +5579,12 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
 
     d.h(2, "0. Cách đọc file này")
     d.p("- Đây là **ảnh chụp trạng thái** một ván RimWorld tại đúng thời điểm lưu. Mọi con số lấy trực tiếp từ file save; "
-        "chỗ nào ghi *(suy luận)* / *(ước tính)* là do công cụ tính thêm, kèm giả định.\n"
+        "chỗ nào ghi *(suy luận)* / *(ước tính)* là do công cụ tính thêm, kèm giả định; chỗ nào ghi *(mặc định)* là giá trị "
+        "game tự bỏ qua không ghi vào XML khi bằng đúng mặc định.\n"
         "- **Toạ độ** `(x,z)`: gốc (0,0) ở góc Tây-Nam map; x tăng về **Đông**, z tăng về **Bắc**. Khoảng cách tính bằng ô.\n"
-        "- **Thời gian**: 1 giờ game = 2.500 tick, 1 ngày = 60.000 tick, 1 quý = 15 ngày, 1 năm = 4 quý "
-        "(Aprimay, Jugust, Septober, Decembary).\n"
+        "- **Thời gian & lịch**: 1 giờ game = 2.500 tick, 1 ngày = 60.000 tick, **1 quý (tháng) chỉ có đúng 15 ngày** (từ ngày 1 đến ngày 15), "
+        "1 năm = 4 quý = 60 ngày theo thứ tự: Aprimay → Jugust → Septober → Decembary (ví dụ: sau ngày 15 Septober là ngày 1 Decembary — "
+        "chỉ cách nhau 1 ngày, không phải vài tháng). Các bảng sự kiện đều có cột «Cách đây (ngày)» tính sẵn.\n"
         "- Tên trong dấu `` ` `` là **defName** gốc của game (tiếng Anh) — dùng để tra wiki chính xác.\n"
         "- Mức nhu cầu/tâm trạng là 0–100%. Ưu tiên việc: 1 = cao nhất … 4 = thấp nhất, 0 = tắt.\n"
         "- Mục 2 là danh sách **việc cần chú ý** do công cụ tự rà theo quy tắc; các mục sau là dữ liệu đầy đủ để kiểm chứng.\n"
@@ -5501,8 +5634,11 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
                       + (f"; 1 ngày trước {wealth[-1 - TICKS_PER_DAY // step]:,.0f}" if step and len(wealth) > TICKS_PER_DAY // step else "")))
     if moods:
         k = 8
-        pairs.append(("Tâm trạng TB thuộc địa (game ghi)", " → ".join(f"{v:.0f}%" for v in moods[-k:])
-                      + (f" (mỗi mẫu cách {fmt_duration(step)})" if step else "")))
+        cols_mood = [p["mood"] * 100 for p in (colonists_of(mp0) if mp0 else []) if p.get("mood") is not None]
+        live_avg = f"; TB trực tiếp tại thời điểm lưu: {sum(cols_mood) / len(cols_mood):.0f}%" if cols_mood else ""
+        m_ago = f", mẫu cuối {fmt_duration(now - hist['last_sample_tick'])} trước" if hist.get("last_sample_tick") is not None else ""
+        pairs.append(("Tâm trạng TB thuộc địa (game ghi)", "cũ → mới: " + " → ".join(f"{v:.0f}%" for v in moods[-k:])
+                      + (f" (mỗi mẫu cách {fmt_duration(step)}{m_ago}{live_avg})" if step else live_avg)))
     pairs.append(("Mods", ", ".join(state["meta"]["modNames"])))
     d.kv(pairs)
 
@@ -5811,7 +5947,8 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
             for (zone, stage), lst in sorted(groups.items()):
                 kinds = Counter(c["def"] for c in lst)
                 poss = [c["pos"] for c in lst if c["pos"]]
-                named = [f"{c['inner_name']} ({c['inner_faction'] or '—'}, chết {save.fmt_tick(c['timeOfDeath'], time=False)})"
+                named = [f"{c['inner_name']} ({c['inner_faction'] or '—'}, chết {save.fmt_tick(c['timeOfDeath'], time=False)}"
+                         + (" — từ trước khi lập thuộc địa" if (c.get("timeOfDeath") or 0) < 0 else "") + ")"
                          for c in lst if c["def"] == "Corpse_Human"]
                 rows.append([zone, ROT_STAGE_VI.get(stage, stage), len(lst), ", ".join(f"{k}×{v}" for k, v in kinds.items()),
                              fmt_bbox(bbox_of(poss)), fmt_rel(mp, poss[0]) if poss else "—", "; ".join(named)])
@@ -5890,6 +6027,7 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
 
     # 16 timeline ---------------------------------------------------------
     d.h(2, "16. Dòng thời gian")
+    block_recent_timeline(d, save, state, days=3, level=3)
     letters = sorted([x for x in state["letters"] if x["tick"] is not None], key=lambda x: x["tick"])
     recent_cut = now - 5 * TICKS_PER_DAY
     d.h(3, "Thư (mọi thư từ đầu ván) và thông báo trong 5 ngày gần nhất")
@@ -5918,11 +6056,13 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
                     "Marriage", "Breakup", "IllnessRevealed", "DefeatedHostileFactionLeader", "KidnappedColonist", "Butchered",
                     "ManhunterPack", "Infestation", "MechCluster"}
         rows = []
-        for t in tales:
+        for t in sorted(tales, key=lambda t: (t["tick"] is None, t["tick"] or 0)):
             if t["def"] not in key_defs or t["tick"] is None:
                 continue
-            rows.append([t["date"], f"`{t['def']}`", tale_sentence(t)])
-        d.table(["Lúc", "Loại", "Diễn biến"], rows[-45:])
+            rows.append([t["date"], f"{(now - t['tick']) / TICKS_PER_DAY:.1f}", f"`{t['def']}`", tale_sentence(t)])
+        if len(rows) > 45:
+            d.p(f"*(hiển thị 45 sự kiện chính gần nhất trong tổng số {len(rows)} sự kiện chính)*")
+        d.table(["Lúc", "Cách đây (ngày)", "Loại", "Diễn biến"], rows[-45:])
         fights = defaultdict(lambda: {"n": 0, "weapons": Counter(), "first": None, "last": None})
         for t in tales:
             if state.get("battle_log"):
@@ -5970,7 +6110,9 @@ def render_ai_state(save: SaveFile, state: dict, standalone: bool = False) -> st
     d.p("- File save **không lưu** các giá trị game tự tính lúc chạy: chỉ số phòng (ấn tượng/đẹp/sạch), tốc độ di chuyển, "
         "mức đau, năng lực cơ thể (Consciousness, Moving…), tốc độ chảy máu, HP tối đa, điện lưới, vùng phủ sáng, "
         "và các *thought tình huống* (đau, phòng xấu, thiếu giải trí, nghiện…). Mục «ký ức» ở trên chỉ gồm thought dạng ký ức.\n"
-        "- Giới tính: game chỉ ghi khi khác `Male`; không có thẻ nghĩa là Male.\n"
+        "- Các trường có giá trị bằng mặc định của C# (`gender=Male`, `healthState=Mobile`, `hostilityResponse=Flee`, "
+        "`selfTend=False`, `medCare=NoCare`, `age=0` của ký ức vừa phát sinh) bị RimWorld bỏ qua khi ghi XML — công cụ tự điền lại "
+        "đúng mặc định của game và ghi rõ `(mặc định)`.\n"
         f"- Ngày giờ: {tz_note}.\n"
         "- Bảng nghiên cứu, ngưỡng thối của thực phẩm/xác, dinh dưỡng, ngưỡng tâm trạng: dựa trên giá trị def **vanilla** "
         "(mod có thể thay đổi).\n"

@@ -11,14 +11,14 @@ Công cụ Python 3 (chỉ dùng thư viện chuẩn), đọc file `.rws` (XML) 
 
 Script **chỉ đọc** file save; không bao giờ ghi/sửa `.rws`.
 
-Hiện repo chỉ lưu **`ai_state.md` ở thư mục gốc** (tạo từ `Autosave-4.rws` bằng lệnh đầu tiên bên dưới);
+Hiện repo chỉ lưu **`ai_state.md` ở thư mục gốc** (hiện được xuất từ `vãi ò.rws` bằng lệnh `--ai-only` bên dưới);
 thư mục `dump/` của chế độ đầy đủ không được giữ trong repo.
 
 ## Chạy
 
 ```bash
 # ★ CHỈ ghi đúng 1 file cho AI (tự chứa đủ, không nhắc tới report/JSON/CSV), không tạo thư mục dump
-python3 tools/rimworld_dump.py "Autosave-4.rws" --ai-only ai_state.md
+python3 tools/rimworld_dump.py "vãi ò.rws" --ai-only ai_state.md
 ```
 
 Mỗi lần có save mới chỉ cần chạy lại lệnh trên với tên file save đó (khoảng 2–3 giây). Ngay dưới tiêu đề
@@ -66,7 +66,7 @@ cổ). `ai_state.md` luôn ghi rõ «trong sương mù» ở những chỗ đó.
 
 | File | Nội dung | Số dòng với `Autosave-4.rws` |
 |---|---|---|
-| **`ai_state.md`** | ★ Bản cô đọng cho AI, 19 mục (0–18) | 905 |
+| **`ai_state.md`** | ★ Bản cô đọng cho AI, 19 mục (0–18) | 941 |
 | `report.md` | Báo cáo đầy đủ, mục ★ + 0–20 | 5.8k |
 | `state.json` | Toàn bộ state dạng máy đọc (kể cả mọi trường XML của pawn) | — |
 | `things_all.csv` | **Mọi** object trên map | 25.801 |
@@ -104,9 +104,11 @@ các file phụ).
 13. Nghiên cứu
 14. Nhiệm vụ: chưa nhận (hạn, thưởng, người liên quan + quan hệ với người trên map), đang chạy, đã kết thúc
 15. Phe phái, thiện chí, điểm đặc biệt trên bản đồ thế giới
-16. Dòng thời gian: mọi thư, thông báo 5 ngày gần nhất, sự kiện game ghi (tale),
-    **nhật ký chiến đấu** (`battleLog`: từng trận ai bắn/đánh ai bằng gì, bao nhiêu phát, trúng bao nhiêu,
-    ai gục/chết; kèm thành tích từng người) và **nhật ký tương tác xã hội** (`playLog`: 150 lần trò chuyện /
+16. Dòng thời gian: **dòng sự kiện hợp nhất 3 ngày gần nhất** (gộp thư + thông báo + chiến đấu + sự kiện + tương tác theo thứ tự giờ),
+    mọi thư, thông báo 5 ngày gần nhất, sự kiện game ghi (tale),
+    **nhật ký chiến đấu** (`battleLog`: đánh số `#1`, `#2` nhất quán xuyên suốt cho từng cá thể thú cùng loài,
+    từng trận ai bắn/đánh ai bằng gì, bao nhiêu phát, trúng bao nhiêu, ai gục/chết và truy vết thủ phạm chảy máu gục muộn;
+    kèm thành tích từng người) và **nhật ký tương tác xã hội** (`playLog`: 150 lần trò chuyện /
     xúc phạm / huấn luyện gần nhất, đếm theo từng cặp)
 17. Chính sách thuốc / trang phục / ăn uống
 18. Giới hạn của dữ liệu (những gì file save không lưu, những gì là suy luận)
@@ -148,7 +150,10 @@ các file phụ).
   Bản công cụ cũ đem điểm này nhân 100 thành phần trăm nên ra các con số kiểu "30000%".
 - **Vai trò của người**: suy từ `faction`, `guest/hostFaction` và `guest/guestStatus`
   (thuộc địa viên / khách / tù nhân / nô lệ / kẻ địch). `guest/joinStatus` là giá trị mặc định, không dùng.
-- **Giới tính**: game chỉ ghi `<gender>` khi khác `Male`; không có thẻ nghĩa là nam.
+- **Giới tính & giá trị mặc định Scribe**: game chỉ ghi thẻ XML khi khác giá trị mặc định của `Scribe_Values.Look`
+  (không có `<gender>` nghĩa là `Male`; trong `<playerSettings>` không có `<hostilityResponse>`, `<selfTend>`, `<medCare>`
+  nghĩa là `Flee`, `False`, `NoCare`; trong `Thought_Memory` không có `<age>` nghĩa là `0` tick). Công cụ tự điền đúng
+  mặc định và đánh dấu `mặc định` thay vì in `—`.
 - **Bộ phận cơ thể**: hediff lưu chỉ số bộ phận; công cụ có bảng thứ tự bộ phận của cơ thể người để ra tên.
 - **Nhóm AI (lord)**: `lordManager` cho biết nhóm nào đang làm gì (ví dụ mech `LordJob_SleepThenAssaultColony`).
   Mech được tách khỏi danh sách động vật.
